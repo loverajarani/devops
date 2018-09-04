@@ -1,0 +1,678 @@
+root@ip-172-31-39-65:~/chef-repo/cookbooks# cd /opt/chefdk/
+root@ip-172-31-39-65:/opt/chefdk# clear
+[3;J
+root@ip-172-31-39-65:/opt/chefdk# ls
+bin  embedded  gitbin  LICENSE  LICENSES  version-manifest.json  version-manifest.txt
+root@ip-172-31-39-65:/opt/chefdk# cd gitbin/
+root@ip-172-31-39-65:/opt/chefdk/gitbin# ls
+git  git-cvsserver  git-receive-pack  git-shell  git-upload-archive  git-upload-pack
+root@ip-172-31-39-65:/opt/chefdk/gitbin# cd ..
+root@ip-172-31-39-65:/opt/chefdk# cat bin
+cat: bin: Is a directory
+root@ip-172-31-39-65:/opt/chefdk# cat bin/
+cat: bin/: Is a directory
+root@ip-172-31-39-65:/opt/chefdk# cd bin
+root@ip-172-31-39-65:/opt/chefdk/bin# ls
+berks  chef-apply   chef-resource-inspector  chef-solo   cookstyle  delivery    inspec   knife  print_execution_environment  pushy-client
+chef   chef-client  chef-shell               chef-vault  dco        foodcritic  kitchen  ohai   push-apply                   pushy-service-manager
+root@ip-172-31-39-65:/opt/chefdk/bin# cd ..
+root@ip-172-31-39-65:/opt/chefdk# cd embedded/
+root@ip-172-31-39-65:/opt/chefdk/embedded# ls
+bin  include  lib  libexec  share  ssl
+root@ip-172-31-39-65:/opt/chefdk/embedded# cd ..
+root@ip-172-31-39-65:/opt/chefdk# cd LICENSES/
+root@ip-172-31-39-65:/opt/chefdk/LICENSES# LS
+The program 'LS' is currently not installed. You can install it by typing:
+apt install sl
+root@ip-172-31-39-65:/opt/chefdk/LICENSES# LS
+The program 'LS' is currently not installed. You can install it by typing:
+apt install sl
+root@ip-172-31-39-65:/opt/chefdk/LICENSES# ls
+autoconf-COPYING                                       ruby_bundler-kitchen-dokken-2.6.7-LICENSE
+autoconf-COPYING.EXCEPTION                             ruby_bundler-kitchen-ec2-2.2.2-LICENSE
+automake-COPYING                                       ruby_bundler-kitchen-google-1.4.0-LICENSE
+bundler-LICENSE.md                                     ruby_bundler-kitchen-hyperv-0.5.1-LICENSE.txt
+bzip2-LICENSE                                          ruby_bundler-kitchen-inspec-0.23.1-LICENSE
+cacerts-index.815ca599c9df.txt                         ruby_bundler-kitchen-vagrant-1.3.2-LICENSE
+config_guess-config.guess                              ruby_bundler-knife-acl-1.0.3-LICENSE
+config_guess-config.sub                                ruby_bundler-knife-cloud-1.2.1-LICENSE
+curl-COPYING                                           ruby_bundler-knife-ec2-0.18.0-LICENSE
+delivery-cli-LICENSE                                   ruby_bundler-knife-google-3.2.0-LICENSE
+expat-COPYING                                          ruby_bundler-knife-opc-0.4.0-LICENSE
+git-custom-bindir-LGPL-2.1                             ruby_bundler-knife-push-1.0.3-LICENSE
+libarchive-COPYING                                     ruby_bundler-knife-spork-1.7.1-LICENSE
+libedit-COPYING                                        ruby_bundler-knife-tidy-1.2.0-LICENSE
+libffi-LICENSE                                         ruby_bundler-knife-windows-1.9.1-LICENSE
+libiconv-COPYING.LIB                                   ruby_bundler-libyajl2-1.2.0-LICENSE
+liblzma-COPYING                                        ruby_bundler-listen-3.1.5-LICENSE.txt
+libsodium-LICENSE                                      ruby_bundler-little-plugger-1.1.4-README.rdoc
+libtool-COPYING                                        ruby_bundler-logging-2.2.2-README.md
+libxml2-COPYING                                        ruby_bundler-logify-0.2.0-LICENSE
+libxslt-COPYING                                        ruby_bundler-memoist-0.16.0-LICENSE.md
+libyaml-LICENSE                                        ruby_bundler-method_source-0.9.0-LICENSE
+libzmq-COPYING                                         ruby_bundler-mime-types-3.1-Licence.rdoc
+libzmq-COPYING.LESSER                                  ruby_bundler-mime-types-data-3.2016.0521-Licence.md
+m4-COPYING                                             ruby_bundler-mini_portile2-2.3.0-LICENSE.txt
+makedepend-COPYING                                     ruby_bundler-minitar-0.6.1-README
+ncurses-ncurses.faq.html                               ruby_bundler-minitest-5.11.3-README.rdoc
+ncurses-ncurses-license.html                           ruby_bundler-mixlib-archive-0.4.6-LICENSE
+openssl-LICENSE                                        ruby_bundler-mixlib-authentication-2.1.1-LICENSE
+pcre-LICENCE                                           ruby_bundler-mixlib-cli-1.7.0-LICENSE
+pkg-config-lite-COPYING                                ruby_bundler-mixlib-config-2.2.11-LICENSE
+ruby-BSDL                                              ruby_bundler-mixlib-install-3.10.0-LICENSE
+ruby_bundler-activesupport-5.2.0-MIT-LICENSE           ruby_bundler-mixlib-log-2.0.4-LICENSE
+ruby_bundler-addressable-2.5.2-LICENSE.txt             ruby_bundler-mixlib-shellout-2.3.2-LICENSE
+ruby_bundler-appbundler-0.11.6-LICENSE.txt             ruby_bundler-mixlib-versioning-1.2.2-LICENSE
+ruby_bundler-app_conf-0.4.2-LICENSE                    ruby_bundler-molinillo-0.6.5-LICENSE
+ruby_bundler-artifactory-2.8.2-LICENSE                 ruby_bundler-ms_rest-0.7.2-LICENSE.txt
+ruby_bundler-ast-2.4.0-LICENSE.MIT                     ruby_bundler-ms_rest_azure-0.10.8-LICENSE.txt
+ruby_bundler-aws-sdk-2.11.80-README.md                 ruby_bundler-multi_json-1.13.1-LICENSE.md
+ruby_bundler-aws-sdk-core-2.11.80-README.md            ruby_bundler-multipart-post-2.0.0-README.md
+ruby_bundler-aws-sdk-resources-2.11.80-README.md       ruby_bundler-multi_test-0.1.2-LICENSE
+ruby_bundler-aws-sigv4-1.0.3-readme.md                 ruby_bundler-nenv-0.3.0-LICENSE.txt
+ruby_bundler-axiom-types-0.1.1-LICENSE                 ruby_bundler-netaddr-1.5.1-license
+ruby_bundler-azure_mgmt_resources-0.16.0-LICENSE.txt   ruby_bundler-net-scp-1.2.1-LICENSE.txt
+ruby_bundler-backports-3.11.3-LICENSE.txt              ruby_bundler-net-sftp-2.1.2-LICENSE.txt
+ruby_bundler-berkshelf-7.0.4-LICENSE                   ruby_bundler-net-ssh-4.2.0-LICENSE.txt
+ruby_bundler-binding_of_caller-0.8.0-LICENSE           ruby_bundler-net-ssh-gateway-1.3.0-LICENSE.txt
+ruby_bundler-builder-3.2.3-MIT-LICENSE                 ruby_bundler-net-ssh-multi-1.2.1-LICENSE.txt
+ruby_bundler-bundler-1.16.1-LICENSE.md                 ruby_bundler-net-telnet-0.1.1-LICENSE.txt
+ruby_bundler-byebug-10.0.2-LICENSE                     ruby_bundler-nokogiri-1.8.3-LICENSE.md
+ruby_bundler-chef-14.2.0-LICENSE                       ruby_bundler-nori-2.6.0-LICENSE
+ruby_bundler-chef-api-0.8.0-LICENSE                    ruby_bundler-notiffany-0.1.1-LICENSE.txt
+ruby_bundler-chef-config-14.2.0-LICENSE                ruby_bundler-octokit-4.9.0-LICENSE.md
+ruby_bundler-chef-dk-3.1.0-LICENSE                     ruby_bundler-ohai-14.2.0-LICENSE
+ruby_bundler-cheffish-14.0.1-LICENSE                   ruby_bundler-opscode-pushy-client-2.4.11-LICENSE
+ruby_bundler-chef-provisioning-2.7.1-LICENSE           ruby_bundler-os-0.9.6-LICENSE
+ruby_bundler-chef-provisioning-aws-3.0.2-LICENSE       ruby_bundler-paint-1.0.1-MIT-LICENSE.txt
+ruby_bundler-chef-provisioning-fog-0.26.1-LICENSE      ruby_bundler-parallel-1.12.1-MIT-LICENSE.txt
+ruby_bundler-chefspec-7.2.1-LICENSE                    ruby_bundler-parser-2.5.1.0-LICENSE.txt
+ruby_bundler-chefstyle-0.10.0-LICENSE.txt              ruby_bundler-parslet-1.8.2-LICENSE
+ruby_bundler-chef-sugar-4.0.0-LICENSE                  ruby_bundler-plist-3.4.0-LICENSE.txt
+ruby_bundler-chef-vault-3.3.0-LICENSE                  ruby_bundler-polyglot-0.3.5-License.txt
+ruby_bundler-chef-zero-14.0.6-LICENSE                  ruby_bundler-powerpack-0.1.2-LICENSE.txt
+ruby_bundler-cleanroom-1.0.0-LICENSE                   ruby_bundler-proxifier-1.0.3-LICENSE
+ruby_bundler-coderay-1.1.2-README_INDEX.rdoc           ruby_bundler-pry-0.11.3-LICENSE
+ruby_bundler-coercible-1.0.0-LICENSE.txt               ruby_bundler-pry-byebug-3.6.0-LICENSE
+ruby_bundler-concurrent-ruby-1.0.5-LICENSE.txt         ruby_bundler-pry-remote-0.1.8-LICENSE
+ruby_bundler-cookbook-omnifetch-0.8.0-LICENSE          ruby_bundler-pry-stack_explorer-0.4.9.2-LICENSE
+ruby_bundler-cookstyle-3.0.0-LICENSE.txt               ruby_bundler-public_suffix-3.0.2-LICENSE.txt
+ruby_bundler-cucumber-3.1.1-LICENSE                    ruby_bundler-rack-2.0.5-COPYING
+ruby_bundler-cucumber-core-3.1.0-LICENSE               ruby_bundler-rainbow-3.0.0-LICENSE
+ruby_bundler-cucumber-expressions-6.0.1-LICENSE        ruby_bundler-rake-12.3.1-MIT-LICENSE
+ruby_bundler-cucumber-tag_expressions-1.1.1-LICENSE    ruby_bundler-rb-fsevent-0.10.3-LICENSE.txt
+ruby_bundler-cucumber-wire-0.0.1-LICENSE               ruby_bundler-rb-inotify-0.9.10-README.md
+ruby_bundler-dco-1.0.1-LICENSE                         ruby_bundler-rb-readline-0.5.5-LICENSE
+ruby_bundler-debug_inspector-0.0.3-README.md           ruby_bundler-rbvmomi-1.13.0-LICENSE
+ruby_bundler-dep_selector-1.0.6-LICENSE                ruby_bundler-rdoc-6.0.4-LICENSE.rdoc
+ruby_bundler-dep-selector-libgecode-1.3.1-LICENSE.txt  ruby_bundler-representable-2.3.0-LICENSE
+ruby_bundler-descendants_tracker-0.0.4-LICENSE         ruby_bundler-resource_kit-0.1.7-LICENSE.txt
+ruby_bundler-diff-lcs-1.3-License.md                   ruby_bundler-retriable-2.1.0-LICENSE
+ruby_bundler-diffy-3.2.1-LICENSE                       ruby_bundler-retryable-2.0.4-LICENSE.md
+ruby_bundler-docker-api-1.34.2-LICENSE                 ruby_bundler-rspec-3.7.0-LICENSE.md
+ruby_bundler-domain_name-0.5.20180417-LICENSE.txt      ruby_bundler-rspec-core-3.7.1-LICENSE.md
+ruby_bundler-droplet_kit-2.3.0-LICENSE.txt             ruby_bundler-rspec-expectations-3.7.0-LICENSE.md
+ruby_bundler-equalizer-0.0.11-LICENSE                  ruby_bundler-rspec-its-1.2.0-LICENSE.txt
+ruby_bundler-erubis-2.7.0-MIT-LICENSE                  ruby_bundler-rspec_junit_formatter-0.2.3-LICENSE
+ruby_bundler-excon-0.62.0-LICENSE.md                   ruby_bundler-rspec-mocks-3.7.0-LICENSE.md
+ruby_bundler-faraday-0.15.2-LICENSE.md                 ruby_bundler-rspec-support-3.7.1-LICENSE.md
+ruby_bundler-faraday-cookie_jar-0.0.6-LICENSE.txt      ruby_bundler-rubocop-0.55.0-LICENSE.txt
+ruby_bundler-fauxhai-6.4.0-LICENSE                     ruby_bundler-ruby_dep-1.5.0-LICENSE.txt
+ruby_bundler-ffi-1.9.25-COPYING                        ruby_bundler-rubyntlm-0.6.2-LICENSE
+ruby_bundler-ffi-1.9.25-LICENSE                        ruby_bundler-ruby-prof-0.17.0-LICENSE
+ruby_bundler-ffi-libarchive-0.4.1-LICENSE              ruby_bundler-ruby-progressbar-1.9.0-LICENSE.txt
+ruby_bundler-ffi-rzmq-core-1.0.6-LICENSE               ruby_bundler-ruby-shadow-2.5.0-LICENSE
+ruby_bundler-ffi-yajl-2.3.1-LICENSE                    ruby_bundler-rubyzip-1.2.1-README.md
+ruby_bundler-filesize-0.1.1-LICENSE                    ruby_bundler-rufus-lru-1.1.0-LICENSE.txt
+ruby_bundler-fog-aws-1.4.1-LICENSE.md                  ruby_bundler-sawyer-0.8.1-LICENSE.md
+ruby_bundler-fog-core-1.45.0-LICENSE.md                ruby_bundler-semverse-2.0.0-LICENSE
+ruby_bundler-fog-digitalocean-0.3.0-LICENSE.md         ruby_bundler-serverspec-2.41.3-LICENSE.txt
+ruby_bundler-fog-joyent-0.0.1-LICENSE.md               ruby_bundler-sfl-2.3-LICENCE.md
+ruby_bundler-fog-json-1.2.0-LICENSE.md                 ruby_bundler-shellany-0.0.1-LICENSE.txt
+ruby_bundler-fog-openstack-0.1.26-LICENSE.md           ruby_bundler-signet-0.8.1-LICENSE
+ruby_bundler-fog-rackspace-0.1.5-LICENSE.md            ruby_bundler-slop-3.6.0-LICENSE
+ruby_bundler-fog-scaleway-0.5.0-LICENSE.txt            ruby_bundler-solve-4.0.0-LICENSE
+ruby_bundler-fog-softlayer-1.1.4-LICENSE.txt           ruby_bundler-specinfra-2.73.4-LICENSE.txt
+ruby_bundler-fog-xenserver-0.3.0-LICENSE.md            ruby_bundler-sslshake-1.2.0-README.md
+ruby_bundler-fog-xml-0.1.3-LICENSE.md                  ruby_bundler-stove-6.0.0-LICENSE
+ruby_bundler-foodcritic-14.0.0-LICENSE                 ruby_bundler-syslog-logger-1.6.8-README.rdoc
+ruby_bundler-formatador-0.2.5-LICENSE.md               ruby_bundler-systemu-2.6.5-LICENSE
+ruby_bundler-fuzzyurl-0.9.0-LICENSE.txt                ruby_bundler-test-kitchen-1.22.0-LICENSE
+ruby_bundler-gcewinpass-1.0.0-LICENSE.txt              ruby_bundler-thor-0.20.0-LICENSE.md
+ruby_bundler-gherkin-5.1.0-LICENSE                     ruby_bundler-thread_safe-0.3.6-LICENSE
+ruby_bundler-git-1.4.0-LICENSE                         ruby_bundler-timeliness-0.3.8-LICENSE
+ruby_bundler-google-api-client-0.9.28-LICENSE          ruby_bundler-tomlrb-1.2.7-LICENSE.txt
+ruby_bundler-googleauth-0.6.2-COPYING                  ruby_bundler-train-1.4.4-LICENSE
+ruby_bundler-gssapi-1.2.0-COPYING                      ruby_bundler-treetop-1.6.10-LICENSE
+ruby_bundler-guard-2.14.2-LICENSE                      ruby_bundler-tzinfo-1.2.5-LICENSE
+ruby_bundler-gyoku-1.3.1-MIT-LICENSE                   ruby_bundler-uber-0.0.15-LICENSE
+ruby_bundler-hashie-3.5.7-LICENSE                      ruby_bundler-ubuntu_ami-0.4.1-LICENSE
+ruby_bundler-highline-1.7.10-LICENSE                   ruby_bundler-unf-0.1.4-LICENSE
+ruby_bundler-htmlentities-4.3.4-COPYING.txt            ruby_bundler-unf_ext-0.0.7.5-LICENSE.txt
+ruby_bundler-httpclient-2.8.3-README.md                ruby_bundler-unicode-display_width-1.4.0-MIT-LICENSE.txt
+ruby_bundler-http-cookie-1.0.3-LICENSE.txt             ruby_bundler-uuidtools-2.1.5-LICENSE.txt
+ruby_bundler-hurley-0.2-LICENSE.md                     ruby_bundler-virtus-1.0.5-LICENSE
+ruby_bundler-i18n-1.0.1-MIT-LICENSE                    ruby_bundler-winrm-2.2.3-LICENSE
+ruby_bundler-ice_nine-0.11.2-LICENSE                   ruby_bundler-winrm-elevated-1.1.0-LICENSE
+ruby_bundler-inifile-3.0.0-README.md                   ruby_bundler-winrm-fs-1.2.0-LICENSE
+ruby_bundler-iniparse-1.4.4-LICENSE                    ruby_bundler-wmi-lite-1.0.0-LICENSE
+ruby_bundler-inspec-2.1.72-LICENSE                     ruby_bundler-yard-0.9.14-LICENSE
+ruby_bundler-ipaddress-0.8.3-LICENSE.txt               ruby-COPYING
+ruby_bundler-iso8601-0.9.1-LICENSE                     rubygems-LICENSE.txt
+ruby_bundler-jmespath-1.4.0-LICENSE.txt                ruby-LEGAL
+ruby_bundler-json-2.1.0-README.md                      rust-LICENSE-APACHE
+ruby_bundler-jwt-2.1.0-LICENSE                         util-macros-COPYING
+ruby_bundler-kartograph-0.2.7-LICENSE.txt              xproto-COPYING
+ruby_bundler-kitchen-digitalocean-0.10.0-LICENSE.txt   zlib-README
+root@ip-172-31-39-65:/opt/chefdk/LICENSES# cd ..
+root@ip-172-31-39-65:/opt/chefdk# 
+
+
+
+********************************manifest files ******************************************
+
+
+root@ip-172-31-39-65:/opt/chefdk# cat version-manifest.json 
+{
+  "manifest_format": 2,
+  "software": {
+    "preparation": {
+      "locked_version": "1.0.0",
+      "locked_source": null,
+      "source_type": "project_local",
+      "described_version": "1.0.0",
+      "license": "project_license"
+    },
+    "cacerts": {
+      "locked_version": "2018-03-07",
+      "locked_source": {
+        "url": "https://curl.haxx.se/ca/cacert-2018-03-07.pem",
+        "sha256": "79ea479e9f329de7075c40154c591b51eb056d458bc4dff76d9a4b9c6c4f6d0b"
+      },
+      "source_type": "url",
+      "described_version": "2018-03-07",
+      "license": "MPL-2.0"
+    },
+    "xproto": {
+      "locked_version": "7.0.28",
+      "locked_source": {
+        "md5": "0b42843b99aee3e4f6a9cc7710143f86",
+        "url": "https://www.x.org/releases/individual/proto/xproto-7.0.28.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "7.0.28",
+      "license": "MIT"
+    },
+    "util-macros": {
+      "locked_version": "1.19.0",
+      "locked_source": {
+        "md5": "40e1caa49a71a26e0aa68ddd00203717",
+        "url": "https://www.x.org/releases/individual/util/util-macros-1.19.0.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "1.19.0",
+      "license": "MIT"
+    },
+    "config_guess": {
+      "locked_version": "84f04b02a7e2fc8eaa9d52deee5f6d57b06fe447",
+      "locked_source": {
+        "git": "https://github.com/chef/config-mirror.git"
+      },
+      "source_type": "git",
+      "described_version": "master",
+      "license": "GPL-3.0 (with exception)"
+    },
+    "pkg-config-lite": {
+      "locked_version": "0.28-1",
+      "locked_source": {
+        "md5": "61f05feb6bab0a6bbfab4b6e3b2f44b6",
+        "url": "http://downloads.sourceforge.net/project/pkgconfiglite/0.28-1/pkg-config-lite-0.28-1.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "0.28-1",
+      "license": "GPL-2.0"
+    },
+    "makedepend": {
+      "locked_version": "1.0.5",
+      "locked_source": {
+        "url": "https://www.x.org/releases/individual/util/makedepend-1.0.5.tar.gz",
+        "md5": "efb2d7c7e22840947863efaedc175747"
+      },
+      "source_type": "url",
+      "described_version": "1.0.5",
+      "license": "MIT"
+    },
+    "openssl": {
+      "locked_version": "1.0.2o",
+      "locked_source": {
+        "url": "https://www.openssl.org/source/openssl-1.0.2o.tar.gz",
+        "extract": "lax_tar",
+        "sha256": "ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d"
+      },
+      "source_type": "url",
+      "described_version": "1.0.2o",
+      "license": "OpenSSL"
+    },
+    "rust": {
+      "locked_version": "1.27.0",
+      "locked_source": {
+        "sha256": "235ad78e220b10a2d0267aea1e2c0f19ef5eaaff53ad6ff8b12c1d4370dec9a3",
+        "url": "https://static.rust-lang.org/dist/rust-1.27.0-x86_64-unknown-linux-gnu.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "1.27.0",
+      "license": "Apache-2.0"
+    },
+    "zlib": {
+      "locked_version": "1.2.11",
+      "locked_source": {
+        "sha256": "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1",
+        "url": "https://zlib.net/fossils/zlib-1.2.11.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "1.2.11",
+      "license": "Zlib"
+    },
+    "curl": {
+      "locked_version": "7.59.0",
+      "locked_source": {
+        "sha256": "099d9c32dc7b8958ca592597c9fabccdf4c08cfb7c114ff1afbbc4c6f13c9e9e",
+        "url": "https://curl.haxx.se/download/curl-7.59.0.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "7.59.0",
+      "license": "MIT"
+    },
+    "ncurses": {
+      "locked_version": "5.9",
+      "locked_source": {
+        "md5": "8cb9c412e5f2d96bc6f459aa8c6282a1",
+        "url": "https://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "5.9",
+      "license": "MIT"
+    },
+    "libedit": {
+      "locked_version": "20120601-3.0",
+      "locked_source": {
+        "md5": "e50f6a7afb4de00c81650f7b1a0f5aea",
+        "url": "http://www.thrysoee.dk/editline/libedit-20120601-3.0.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "20120601-3.0",
+      "license": "BSD-3-Clause"
+    },
+    "pcre": {
+      "locked_version": "8.38",
+      "locked_source": {
+        "md5": "8a353fe1450216b6655dfcf3561716d9",
+        "url": "http://downloads.sourceforge.net/project/pcre/pcre/8.38/pcre-8.38.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "8.38",
+      "license": "BSD-2-Clause"
+    },
+    "libiconv": {
+      "locked_version": "1.15",
+      "locked_source": {
+        "url": "https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.15.tar.gz",
+        "sha256": "ccf536620a45458d26ba83887a983b96827001e92a13847b45e4925cc8913178"
+      },
+      "source_type": "url",
+      "described_version": "1.15",
+      "license": "LGPL-2.1"
+    },
+    "expat": {
+      "locked_version": "2.1.0",
+      "locked_source": {
+        "url": "http://downloads.sourceforge.net/project/expat/expat/2.1.0/expat-2.1.0.tar.gz",
+        "md5": "dd7dab7a5fea97d2a6a43f511449b7cd"
+      },
+      "source_type": "url",
+      "described_version": "2.1.0",
+      "license": "MIT"
+    },
+    "liblzma": {
+      "locked_version": "5.2.3",
+      "locked_source": {
+        "sha256": "71928b357d0a09a12a4b4c5fafca8c31c19b0e7d3b8ebb19622e96f26dbf28cb",
+        "url": "http://tukaani.org/xz/xz-5.2.3.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "5.2.3",
+      "license": "Public-Domain"
+    },
+    "libxml2": {
+      "locked_version": "2.9.8",
+      "locked_source": {
+        "sha256": "0b74e51595654f958148759cfef0993114ddccccbb6f31aee018f3558e8e2732",
+        "url": "ftp://xmlsoft.org/libxml2/libxml2-2.9.8.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "2.9.8",
+      "license": "MIT"
+    },
+    "libxslt": {
+      "locked_version": "1.1.30",
+      "locked_source": {
+        "sha256": "ba65236116de8326d83378b2bd929879fa185195bc530b9d1aba72107910b6b3",
+        "url": "ftp://xmlsoft.org/libxml2/libxslt-1.1.30.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "1.1.30",
+      "license": "MIT"
+    },
+    "bzip2": {
+      "locked_version": "1.0.6",
+      "locked_source": {
+        "sha256": "a2848f34fcd5d6cf47def00461fcb528a0484d8edef8208d6d2e2909dc61d9cd",
+        "url": "http://www.bzip.org/1.0.6/bzip2-1.0.6.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "1.0.6",
+      "license": "BSD-2-Clause"
+    },
+    "libarchive": {
+      "locked_version": "3.3.2",
+      "locked_source": {
+        "sha256": "ed2dbd6954792b2c054ccf8ec4b330a54b85904a80cef477a1c74643ddafa0ce",
+        "url": "http://www.libarchive.org/downloads/libarchive-3.3.2.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "3.3.2",
+      "license": "BSD-2-Clause"
+    },
+    "m4": {
+      "locked_version": "1.4.17",
+      "locked_source": {
+        "url": "https://ftp.gnu.org/gnu/m4/m4-1.4.17.tar.gz",
+        "md5": "a5e9954b1dae036762f7b13673a2cf76"
+      },
+      "source_type": "url",
+      "described_version": "1.4.17",
+      "license": "GPL-3.0"
+    },
+    "autoconf": {
+      "locked_version": "2.68",
+      "locked_source": {
+        "md5": "c3b5247592ce694f7097873aa07d66fe",
+        "url": "https://ftp.gnu.org/gnu/autoconf/autoconf-2.68.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "2.68",
+      "license": "GPL-3.0"
+    },
+    "automake": {
+      "locked_version": "1.11.2",
+      "locked_source": {
+        "md5": "79ad64a9f6e83ea98d6964cef8d8a0bc",
+        "url": "https://ftp.gnu.org/gnu/automake/automake-1.11.2.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "1.11.2",
+      "license": "GPL-2.0"
+    },
+    "libtool": {
+      "locked_version": "2.4.2",
+      "locked_source": {
+        "md5": "d2f3b7d4627e69e13514a40e72a24d50",
+        "url": "https://ftp.gnu.org/gnu/libtool/libtool-2.4.2.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "2.4.2",
+      "license": "GPL-2.0"
+    },
+    "libsodium": {
+      "locked_version": "1.0.2",
+      "locked_source": {
+        "md5": "dc40eb23e293448c6fc908757738003f",
+        "url": "https://download.libsodium.org/libsodium/releases/old/libsodium-1.0.2.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "1.0.2",
+      "license": "ISC"
+    },
+    "libzmq": {
+      "locked_version": "4.0.7",
+      "locked_source": {
+        "sha256": "e00b2967e074990d0538361cc79084a0a92892df2c6e7585da34e4c61ee47b03",
+        "url": "http://download.zeromq.org/zeromq-4.0.7.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "4.0.7",
+      "license": "LGPL-3.0"
+    },
+    "libffi": {
+      "locked_version": "3.2.1",
+      "locked_source": {
+        "md5": "83b89587607e3eb65c70d361f13bab43",
+        "url": "ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "3.2.1",
+      "license": "MIT"
+    },
+    "libyaml": {
+      "locked_version": "0.1.7",
+      "locked_source": {
+        "sha256": "8088e457264a98ba451a90b8661fcb4f9d6f478f7265d48322a196cec2480729",
+        "url": "http://pyyaml.org/download/libyaml/yaml-0.1.7.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "0.1.7",
+      "license": "MIT"
+    },
+    "ruby": {
+      "locked_version": "2.5.1",
+      "locked_source": {
+        "sha256": "dac81822325b79c3ba9532b048c2123357d3310b2b40024202f360251d9829b1",
+        "url": "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "2.5.1",
+      "license": "BSD-2-Clause"
+    },
+    "rubygems": {
+      "locked_version": "2.7.6",
+      "locked_source": null,
+      "source_type": "project_local",
+      "described_version": "2.7.6",
+      "license": "MIT"
+    },
+    "bundler": {
+      "locked_version": "1.16.1",
+      "locked_source": null,
+      "source_type": "project_local",
+      "described_version": "1.16.1",
+      "license": "MIT"
+    },
+    "google-protobuf": {
+      "locked_version": "b5fbb742af122b565925987e65c08957739976a7",
+      "locked_source": {
+        "git": "https://github.com/google/protobuf.git"
+      },
+      "source_type": "git",
+      "described_version": "v3.5.2",
+      "license": "project_license"
+    },
+    "delivery-cli": {
+      "locked_version": "6862f27aba89109a9630f0b6c6798efec56b4efe",
+      "locked_source": {
+        "git": "https://github.com/chef/delivery-cli.git"
+      },
+      "source_type": "git",
+      "described_version": "master",
+      "license": "Apache-2.0"
+    },
+    "rust-uninstall": {
+      "locked_version": "0.0.1",
+      "locked_source": null,
+      "source_type": "project_local",
+      "described_version": "0.0.1",
+      "license": "project_license"
+    },
+    "git-custom-bindir": {
+      "locked_version": "2.14.1",
+      "locked_source": {
+        "md5": "b767f0b21aa41d10268b2075078d334e",
+        "url": "https://www.kernel.org/pub/software/scm/git/git-2.14.1.tar.gz"
+      },
+      "source_type": "url",
+      "described_version": "2.14.1",
+      "license": "LGPL-2.1"
+    },
+    "chef-dk": {
+      "locked_version": "local_source",
+      "locked_source": {
+        "path": "/home/jenkins/workspace/chefdk-build/architecture/x86_64/platform/ubuntu-14.04/project/chefdk/role/builder",
+        "options": {
+          "exclude": [
+            "omnibus/vendor"
+          ]
+        }
+      },
+      "source_type": "path",
+      "described_version": "local_source",
+      "license": "project_license"
+    },
+    "gem-permissions": {
+      "locked_version": "0.0.1",
+      "locked_source": null,
+      "source_type": "project_local",
+      "described_version": "0.0.1",
+      "license": "project_license"
+    },
+    "rubygems-customization": {
+      "locked_version": null,
+      "locked_source": {
+        "path": "/home/jenkins/workspace/chefdk-build/architecture/x86_64/platform/ubuntu-14.04/project/chefdk/role/builder/omnibus/files/rubygems-customization"
+      },
+      "source_type": "path",
+      "described_version": null,
+      "license": "project_license"
+    },
+    "shebang-cleanup": {
+      "locked_version": "0.0.2",
+      "locked_source": null,
+      "source_type": "project_local",
+      "described_version": "0.0.2",
+      "license": "project_license"
+    },
+    "version-manifest": {
+      "locked_version": "0.0.1",
+      "locked_source": null,
+      "source_type": "project_local",
+      "described_version": "0.0.1",
+      "license": "project_license"
+    },
+    "openssl-customization": {
+      "locked_version": null,
+      "locked_source": {
+        "path": "/home/jenkins/workspace/chefdk-build/architecture/x86_64/platform/ubuntu-14.04/project/chefdk/role/builder/omnibus/files/openssl-customization"
+      },
+      "source_type": "path",
+      "described_version": null,
+      "license": "project_license"
+    }
+  },
+  "build_version": "3.1.0",
+  "build_git_revision": "d154b308119a182ffd69e1d644b7c2691c699341",
+  "license": "Apache-2.0"
+}
+root@ip-172-31-39-65:/opt/chefdk# ls
+bin  embedded  gitbin  LICENSE  LICENSES  version-manifest.json  version-manifest.txt
+root@ip-172-31-39-65:/opt/chefdk# cat version-manifest.txt
+chefdk 3.1.0
+
+Component                Installed Version   Version GUID                                                                                                      Overridden From   
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+autoconf                 2.68                md5:c3b5247592ce694f7097873aa07d66fe                                                                              
+automake                 1.11.2              md5:79ad64a9f6e83ea98d6964cef8d8a0bc                                                                              
+bundler                  3.1.0               
+bzip2                    1.0.6               sha256:a2848f34fcd5d6cf47def00461fcb528a0484d8edef8208d6d2e2909dc61d9cd                                           
+cacerts                  2018-03-07          sha256:79ea479e9f329de7075c40154c591b51eb056d458bc4dff76d9a4b9c6c4f6d0b                                           
+chef-dk                  local_source        path:/home/jenkins/workspace/chefdk-build/architecture/x86_64/platform/ubuntu-14.04/project/chefdk/role/builder   
+config_guess             master              git:84f04b02a7e2fc8eaa9d52deee5f6d57b06fe447                                                                      
+curl                     7.59.0              sha256:099d9c32dc7b8958ca592597c9fabccdf4c08cfb7c114ff1afbbc4c6f13c9e9e                                           
+delivery-cli             master              git:6862f27aba89109a9630f0b6c6798efec56b4efe                                                                      
+expat                    2.1.0               md5:dd7dab7a5fea97d2a6a43f511449b7cd                                                                              
+gem-permissions          0.0.1               
+git-custom-bindir        2.14.1              md5:b767f0b21aa41d10268b2075078d334e                                                                              
+google-protobuf          v3.5.2              git:b5fbb742af122b565925987e65c08957739976a7                                                                      
+libarchive               3.3.2               sha256:ed2dbd6954792b2c054ccf8ec4b330a54b85904a80cef477a1c74643ddafa0ce                                           
+libedit                  20120601-3.0        md5:e50f6a7afb4de00c81650f7b1a0f5aea                                                                              
+libffi                   3.2.1               md5:83b89587607e3eb65c70d361f13bab43                                                                              
+libiconv                 1.15                sha256:ccf536620a45458d26ba83887a983b96827001e92a13847b45e4925cc8913178                                           
+liblzma                  5.2.3               sha256:71928b357d0a09a12a4b4c5fafca8c31c19b0e7d3b8ebb19622e96f26dbf28cb                                           5.2.4             
+libsodium                1.0.2               md5:dc40eb23e293448c6fc908757738003f                                                                              
+libtool                  2.4.2               md5:d2f3b7d4627e69e13514a40e72a24d50                                                                              2.4               
+libxml2                  2.9.8               sha256:0b74e51595654f958148759cfef0993114ddccccbb6f31aee018f3558e8e2732                                           
+libxslt                  1.1.30              sha256:ba65236116de8326d83378b2bd929879fa185195bc530b9d1aba72107910b6b3                                           
+libyaml                  0.1.7               sha256:8088e457264a98ba451a90b8661fcb4f9d6f478f7265d48322a196cec2480729                                           
+libzmq                   4.0.7               sha256:e00b2967e074990d0538361cc79084a0a92892df2c6e7585da34e4c61ee47b03                                           2.1.11            
+m4                       1.4.17              md5:a5e9954b1dae036762f7b13673a2cf76                                                                              
+makedepend               1.0.5               md5:efb2d7c7e22840947863efaedc175747                                                                              
+ncurses                  5.9                 md5:8cb9c412e5f2d96bc6f459aa8c6282a1                                                                              
+openssl                  1.0.2o              sha256:ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d                                           
+openssl-customization    3.1.0               
+pcre                     8.38                md5:8a353fe1450216b6655dfcf3561716d9                                                                              
+pkg-config-lite          0.28-1              md5:61f05feb6bab0a6bbfab4b6e3b2f44b6                                                                              
+preparation              1.0.0               
+ruby                     2.5.1               sha256:dac81822325b79c3ba9532b048c2123357d3310b2b40024202f360251d9829b1                                           2.1.8             
+rubygems                 3.1.0               
+rubygems-customization   3.1.0               
+rust                     1.27.0              sha256:235ad78e220b10a2d0267aea1e2c0f19ef5eaaff53ad6ff8b12c1d4370dec9a3                                           
+rust-uninstall           0.0.1               
+shebang-cleanup          0.0.2               
+util-macros              1.19.0              md5:40e1caa49a71a26e0aa68ddd00203717                                                                              1.18.0            
+version-manifest         0.0.1               
+xproto                   7.0.28              md5:0b42843b99aee3e4f6a9cc7710143f86                                                                              7.0.25            
+zlib                     1.2.11              sha256:c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1      
+
+
+
+
+
+root@ip-172-31-39-65:~/chef-repo/cookbooks# ls
+chef_dk  chefignore  chef_web  chef_webserver  mkdir  starter  webserver6
+root@ip-172-31-39-65:~/chef-repo/cookbooks# ls webserver6/
+Berksfile  CHANGELOG.md  chefignore  LICENSE  metadata.rb  README.md  recipes  spec  test
+root@ip-172-31-39-65:~/chef-repo/cookbooks# mkdir vi webserver6/templates/default/index.html.erb
+mkdir: cannot create directory ‘webserver6/templates/default/index.html.erb’: No such file or directory
+root@ip-172-31-39-65:~/chef-repo/cookbooks# mkdir webserver6/templates/default/index.html.erb
+mkdir: cannot create directory ‘webserver6/templates/default/index.html.erb’: No such file or directory
+root@ip-172-31-39-65:~/chef-repo/cookbooks# mkdir webserver6/templates/default/
+mkdir: cannot create directory ‘webserver6/templates/default/’: No such file or directory
+root@ip-172-31-39-65:~/chef-repo/cookbooks# mkdir webserver6/templates/default
+mkdir: cannot create directory ‘webserver6/templates/default’: No such file or directory
+root@ip-172-31-39-65:~/chef-repo/cookbooks# ls
+chef_dk  chefignore  chef_web  chef_webserver  mkdir  starter  vi  webserver6
+root@ip-172-31-39-65:~/chef-repo/cookbooks# rm -rf mkdir
+root@ip-172-31-39-65:~/chef-repo/cookbooks# mkdir webserver6/templates/default
+mkdir: cannot create directory ‘webserver6/templates/default’: No such file or directory
+root@ip-172-31-39-65:~/chef-repo/cookbooks# ls
+chef_dk  chefignore  chef_web  chef_webserver  starter  vi  webserver6
+root@ip-172-31-39-65:~/chef-repo/cookbooks# cd webserver6/
+root@ip-172-31-39-65:~/chef-repo/cookbooks/webserver6# ls
+Berksfile  CHANGELOG.md  chefignore  LICENSE  metadata.rb  README.md  recipes  spec  test
+root@ip-172-31-39-65:~/chef-repo/cookbooks/webserver6# mkdir templates
+root@ip-172-31-39-65:~/chef-repo/cookbooks/webserver6# mkdir templates/default
+root@ip-172-31-39-65:~/chef-repo/cookbooks/webserver6# cd ..
+root@ip-172-31-39-65:~/chef-repo/cookbooks# vi webserver6/templates/default/index.html.erb
+root@ip-172-31-39-65:~/chef-repo/cookbooks# vi webserver6/recipes/default.rb 
+root@ip-172-31-39-65:~/chef-repo/cookbooks# knife upload cookbook webserver6
+Created webserver6
+root@ip-172-31-39-65:~/chef-repo/cookbooks# knife node run_list add loverajarani recipe[webserver6]
+loverajarani:
+  run_list:
+    recipe[chef_dk]
+    recipe[chef_webserver]
+    recipe[chef_webserver@0.1.1]
+    recipe[chef_web]
+    recipe[webserver6]
+
+
+
+
+
