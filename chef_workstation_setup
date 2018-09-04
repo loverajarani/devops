@@ -286,3 +286,8 @@ ubuntu@ip-172-31-37-127:/var/chef/cache$ cd cookbooks/
 ubuntu@ip-172-31-37-127:/var/chef/cache/cookbooks$ ls
 chef_dk
 ubuntu@ip-172-31-37-127:/var/chef/cache/cookbooks$ 
+
+
+without webui
+
+https://docs.chef.io/chefdk_setup.html
