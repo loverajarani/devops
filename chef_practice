@@ -78,3 +78,71 @@ loverajarani:
     recipe[chef_webserver]
     recipe[chef_webserver@0.1.1]
 root@ip-172-31-39-65:~/chef-repo/cookbooks#
+
+************************************creating roles****************************************
+root@ip-172-31-39-65:~/chef-repo/cookbooks# cd ..
+root@ip-172-31-39-65:~/chef-repo# ls
+cookbooks  loverajarani4091.pem  README.md  roles
+root@ip-172-31-39-65:~/chef-repo# knife role list
+yogi
+root@ip-172-31-39-65:~/chef-repo# knife role show yogi
+chef_type:           role
+default_attributes:
+description:         testing
+env_run_lists:
+json_class:          Chef::Role
+name:                yogi
+override_attributes:
+run_list:
+
+root@ip-172-31-39-65:~/chef-repo# knife role create rabidus_prod
+ERROR: RuntimeError: Please set EDITOR environment variable. See https://docs.chef.io/knife_setup.html for details.
+root@ip-172-31-39-65:~/chef-repo# export EDITOR=vi
+root@ip-172-31-39-65:~/chef-repo# knife role create rabidus_prod
+Created role[rabidus_prod]
+root@ip-172-31-39-65:~/chef-repo# knife node run_list add loverajarani "role[rabidus_prod]"
+loverajarani:
+  run_list:
+    recipe[chef_webserver]
+    recipe[chef_web]
+    recipe[webserver6]
+    recipe[logitech]
+    recipe[apache2]
+    role[rabidus_prod]
+root@ip-172-31-39-65:~/chef-repo# 
+root@ip-172-31-39-65:~/chef-repo# knife role show rabidus_prod
+chef_type:           role
+default_attributes:
+description:          TO devlop the project logitech
+env_run_lists:
+json_class:          Chef::Role
+name:                rabidus_prod
+override_attributes:
+run_list:
+  recipe[demo]
+  recipe[starter]
+root@ip-172-31-39-65:~/chef-repo# 
+
+
+************************when run knife role create 
+
+  "name": "rabidus_qa",
+  "description": "exmaples/testing perpose",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+giving available cookbooks in chef
+example:   "recipe[demo]",
+"recipe[starter]"----------------------------------->>>>>no need camma here
+  ],
+  "env_run_lists": {
+
+  }
+}
+
