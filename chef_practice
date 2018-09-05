@@ -187,3 +187,17 @@ name "demo6"
 description "demo Chef role"
 run_list "recipe[demo]"
 root@ip-172-31-39-65:~/chef-repo/roles# 
+
+
+root@ip-172-31-39-65:~/chef-repo/roles# cd ..
+root@ip-172-31-39-65:~/chef-repo# knife node run_list add loverajarani "role[demo6]"
+loverajarani:
+  run_list:
+    recipe[chef_webserver]
+    recipe[chef_web]
+    recipe[webserver6]
+    recipe[logitech]
+    recipe[apache2]
+    role[rabidus_prod]
+    role[demo6]
+root@ip-172-31-39-65:~/chef-repo# 
