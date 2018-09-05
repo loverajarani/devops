@@ -1,0 +1,65 @@
+root@ip-172-31-39-65:~/chef-repo/cookbooks# clear
+[3;J
+root@ip-172-31-39-65:~/chef-repo/cookbooks# cat apache2/recipes/default.rb 
+#
+# Cookbook:: apache2
+# Recipe:: default
+#
+# Copyright:: 2018, The Authors, All Rights Reserved
+package node["package_name"] do
+action :install
+end
+template"#{node["document_root"]}/index.html" do
+source "index.html.erb"
+mode"0644"
+end
+service node["service_name"] do
+action [:start,:enable]
+end
+template '/etc/apache2/apache2.conf' do
+source "apache2.conf.erb"
+end
+
+root@ip-172-31-39-65:~/chef-repo/cookbooks# cat apache2/attributes/default.rb 
+case node["platform"]
+	when "ubuntu"
+	default["package_name"]="apache2"
+	default["service_name"]="apache2"
+	default["document_root"]="/var/www/html"
+	when "centos"
+        default["package_name"]="httpd"
+        default["service_name"]="httpd"
+        default["document_root"]="/var/www/html"
+end
+default['apache2']['Listen']='81'
+root@ip-172-31-39-65:~/chef-repo/cookbooks# cat apache2/templates/index.html.erb 
+<html>
+<body>
+error geeting......................
+apache2.
+</body>
+</html>
+root@ip-172-31-39-65:~/chef-repo/cookbooks# vi  apache2/attributes/default.rb 
+root@ip-172-31-39-65:~/chef-repo/cookbooks# knife cookbook upload apache2
+Uploading apache2        [0.1.0]
+Uploaded 1 cookbook.
+root@ip-172-31-39-65:~/chef-repo/cookbooks# knife node run_list add loverajarani recipe[apache2]
+loverajarani:
+  run_list:
+    recipe[chef_webserver]
+    recipe[chef_web]
+    recipe[webserver6]
+    recipe[logitech]
+    recipe[apache2]
+root@ip-172-31-39-65:~/chef-repo/cookbooks# vi  apache2/attributes/default.rb 
+root@ip-172-31-39-65:~/chef-repo/cookbooks# knife cookbook upload apache2
+Uploading apache2        [0.1.0]
+Uploaded 1 cookbook.
+root@ip-172-31-39-65:~/chef-repo/cookbooks# knife node run_list add loverajarani recipe[apache2]
+loverajarani:
+  run_list:
+    recipe[chef_webserver]
+    recipe[chef_web]
+    recipe[webserver6]
+    recipe[logitech]
+    recipe[apache2]
