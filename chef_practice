@@ -146,3 +146,44 @@ example:   "recipe[demo]",
   }
 }
 
+
+root@ip-172-31-39-65:~/chef-repo# ls
+cookbooks  loverajarani4091.pem  README.md  roles
+root@ip-172-31-39-65:~/chef-repo# cd roles/
+root@ip-172-31-39-65:~/chef-repo/roles# ls
+starter.rb
+root@ip-172-31-39-65:~/chef-repo/roles# cat starter.rb 
+name "starter"
+description "An example Chef role"
+run_list "recipe[starter]"
+override_attributes({
+  "starter_name" => "R Rajendra prasad",
+})
+root@ip-172-31-39-65:~/chef-repo/roles# cat>demo.rb
+name "starter"
+description "An example Chef role"
+run_list "recipe[starter]"
+root@ip-172-31-39-65:~/chef-repo/roles# ls
+demo.rb  starter.rb
+root@ip-172-31-39-65:~/chef-repo/roles# knife role from file demo.rb
+Updated Role starter
+root@ip-172-31-39-65:~/chef-repo/roles# knife role list
+rabidus_prod
+rabidus_qa
+starter
+yogi
+root@ip-172-31-39-65:~/chef-repo/roles# vi demo.rb
+root@ip-172-31-39-65:~/chef-repo/roles# vi demo.rb
+root@ip-172-31-39-65:~/chef-repo/roles# knife role from file demo.rb
+Updated Role demo6
+root@ip-172-31-39-65:~/chef-repo/roles# knife role list
+demo6
+rabidus_prod
+rabidus_qa
+starter
+yogi
+root@ip-172-31-39-65:~/chef-repo/roles# cat demo.rb 
+name "demo6"
+description "demo Chef role"
+run_list "recipe[demo]"
+root@ip-172-31-39-65:~/chef-repo/roles# 
