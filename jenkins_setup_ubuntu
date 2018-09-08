@@ -472,7 +472,21 @@ ubuntu@ip-172-31-38-156:~$
 
 *********************GOTO AWS IP ADDRESS AND TAKE IP ADRESS AND PASTE IT*********************
 
+ubuntu@ip-172-31-38-156:~$ sudo cd /var/lib/jenkins/secrets/
+sudo: cd: command not found
+ubuntu@ip-172-31-38-156:~$ sudo -i
+root@ip-172-31-38-156:~# cd /var/lib/jenkins/secrets/
+root@ip-172-31-38-156:/var/lib/jenkins/secrets# ls
+filepath-filters.d    jenkins.model.Jenkins.crumbSalt         org.jenkinsci.main.modules.instance_identity.InstanceIdentity.KEY
+hudson.util.Secret    jenkins.security.ApiTokenProperty.seed  slave-to-master-security-kill-switch
+initialAdminPassword  master.key                              whitelisted-callables.d
+root@ip-172-31-38-156:/var/lib/jenkins/secrets# cat initialAdminPassword 
+3411172642c24504af23932cd4a1f31f
+root@ip-172-31-38-156:/var/lib/jenkins/secrets#
 
+********************************************************************************************************
+	
+Created credentials with id 31b83de7-4a28-4709-a757-98ac530df2a5 (can use it for GitHub Server Config)
 
 
 
