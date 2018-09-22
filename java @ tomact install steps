@@ -1,0 +1,25 @@
+https://thishosting.rocks/install-java-ubuntu/
+apt-get update && apt-get upgrade
+apt-get install default-jdk
+apt-get update && apt-get upgrade
+apt-get install software-properties-common
+add-apt-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java8-installer
+java -version
+
+
+************************ DOWNLOAD AND INSTALL JAVA ************************************************
+apt-get update && apt-get upgrade
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/9.0.4+11/c2514751926b4512b076cc82f959763f/jdk-9.0.4_linux-x64_bin.tar.gz
+mkdir /opt/java
+tar -zxf jdk-9.0.4_linux-x64_bin.tar.gz -C /opt/java
+java -version
+**********************************************
+
+update-alternatives --config java
+update-alternatives --config java
+cat>>/etc/environment
+JAVA_HOME="/your/java/installation-path"
+source /etc/environment
+echo $JAVA_HOME
