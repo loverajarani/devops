@@ -23,3 +23,18 @@ cat>>/etc/environment
 JAVA_HOME="/your/java/installation-path"
 source /etc/environment
 echo $JAVA_HOME
+
+*****************************jenkins*************************************
+
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+wget https://pkg.jenkins.io/debian-stable/binary/jenkins_2.138.1_all.deb
+sudo apt-get install jenkins
+cd /var/lib/jenkins/
+cd /etc/default/
+vi jenkins
+-----------------httpport=8080----4091
+service jenkins status
+service jenkins stop
+service jenkins start
