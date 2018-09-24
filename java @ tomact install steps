@@ -38,3 +38,25 @@ vi jenkins
 service jenkins status
 service jenkins stop
 service jenkins start
+***********************************maven install ***************************
+mkdir /opt/maven
+cd /opt/maven
+wget http://mirrors.wuchna.com/apachemirror/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+apt-get install tar
+tar -xvzf apache-maven-3.5.4-bin.tar.gz
+apt-get install maven
+mvn -v
+********************************* tomcat****************************************
+mkdir /opt/tomcat
+cd /opt/tomcat
+wget http://mirrors.fibergrid.in/apache/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.tar.gz
+tar -xvzf apache-tomcat-8.5.34.tar.gz
+cd apache-tomcat-8.5.34
+ls
+cd bin
+./startup.sh
+ln -s /opt/tomcat/tomcat8/bin/startup.sh /usr/local/bin/up
+ln -s /opt/tomcat/tomcat8/bin/shutdown.sh /usr/local/bin/down
+
+
+
