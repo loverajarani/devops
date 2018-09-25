@@ -1,12 +1,12 @@
+************************************************ to update ubuntu os if u need ******************
 https://thishosting.rocks/install-java-ubuntu/
+https://www.techradar.com/how-to/how-to-speed-up-ubuntu-1804
 apt-get update && apt-get upgrade
-apt-get install default-jdk
-apt-get update && apt-get upgrade
-apt-get install software-properties-common
-add-apt-repository ppa:webupd8team/java
-apt-get update
-apt-get install oracle-java8-installer
-java -version
+----------------------------------------------------------------------------------------------------------------------------------apt-get install default-jdk
+(apt-get update && apt-get upgrade
+apt-get install software-properties-common)
+*********************************** in guest user how to create a user *****************************
+ctrl+alt+f1 
 
 
 ************************ DOWNLOAD AND INSTALL JAVA ************************************************
@@ -15,7 +15,16 @@ wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://downl
 mkdir /opt/java
 tar -zxf jdk-9.0.4_linux-x64_bin.tar.gz -C /opt/java
 java -version
-**********************************************
+
+*************************** install java without download from oracle ********************************
+
+add-apt-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java8-installer
+java -version
+
+
+********************************************** configure java after install ****************************
 
 update-alternatives --config java
 update-alternatives --config java
