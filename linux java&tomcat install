@@ -1,0 +1,10 @@
+sudo -i
+yum install java-1.8.0-openjdk
+java -version
+update-alternatives --config java
+/usr/sbin/alternatives --config java
+cd /usr/lib
+ls
+java-1.8.0 ....................all related versions shown
+export JAVA_HOME=/usr/lib/java-1.8.0
+
