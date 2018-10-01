@@ -66,6 +66,15 @@ cd bin
 ./startup.sh
 ln -s /opt/tomcat/tomcat8/bin/startup.sh /usr/local/bin/up
 ln -s /opt/tomcat/tomcat8/bin/shutdown.sh /usr/local/bin/down
+************************************************** to provide the roles ****************
+ <role rolename="manager-gui"/>
+    <role rolename="manager-script"/>
+    <role rolename="manager-jmx"/>
+    <role rolename="manager-status"/>
+    <role rolename="admin"/>
+    <role rolename="admin-gui"/>
+    <user username="rajendra" password="yogi" roles="admin,manager-gui,manager-script,manager-jmx,manager-status,admin-gui"/>
+    <user username="admin" password="admin" roles="admin,manager-gui,manager-script,manager-jmx,manager-status,admin-gui"/>
 
 
 
