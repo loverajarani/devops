@@ -228,3 +228,6 @@ tmpfs           493M     0  493M   0% /sys/fs/cgroup
 tmpfs            99M     0   99M   0% /run/user/0
 tmpfs            99M     0   99M   0% /run/user/1000
 [root@ip-172-31-81-28 ~]#
+
+
+https://www.reddit.com/r/aws/comments/74o7te/s3_bucket_policy_cannot_add_an_iam_role_as/
