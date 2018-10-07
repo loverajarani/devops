@@ -19,3 +19,17 @@ java -version
 sudo /usr/sbin/alternatives --config java
 sudo /usr/sbin/alternatives --config javac
 ****************************************************************
+ 
+ ******************************** jenkins *************************************
+ cat /etc/os-release
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+yum install crul
+yum install rpm
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum update
+wget https://pkg.jenkins.io/redhat-stable/jenkins-2.138.1-1.1.noarch.rpm
+yum install jenkins
+service jenkins start
+----------------(service jenkins start/stop/restart)------------check in browser
+ssh slaves,mavaen integrator,github,Matrix Authorization Strategy
+*************************************************************************************************
