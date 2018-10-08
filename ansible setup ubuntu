@@ -1,0 +1,12 @@
+https://medium.com/@tushar0618/install-and-configure-ansible-on-ubuntu-ea9be8107061
+#ANSIBLE SETUP IN UBUNTU
+sudo -i
+cat /etc/os-release
+sudo apt-get update
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get install ansible
+ ansible --version
+ ssh-keygen -t rsa
+  ssh-copy-id root@54.235.236.193***********************if it is not work
+  *********************************************************** copy id_rsa.pub in master to agent
+ 
