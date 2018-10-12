@@ -1,5 +1,8 @@
 https://medium.com/@tushar0618/install-and-configure-ansible-on-ubuntu-ea9be8107061
+https://www.tecmint.com/install-and-configure-ansible-automation-tool-in-linux/
+
 #ANSIBLE SETUP IN UBUNTU
+
 sudo -i
 cat /etc/os-release
 sudo apt-get update
