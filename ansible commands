@@ -1,0 +1,3 @@
+ansible all -m ping 
+ansible agent -m file -a 'path=/root/xyz.txt state=touch' -u root
+ansible agent 
