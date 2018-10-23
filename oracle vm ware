@@ -1,2 +1,0 @@
-************** to set centos desktop icons small ****************
-gsettings set org.gnome.nautilus.icon-view default-zoom-level small

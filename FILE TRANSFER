@@ -1,6 +1,0 @@
-https://help.skytap.com/Adding_Sharing_Files.html
-****************************** UBUNTU TO AWS *********************
- scp -i awskey.pem chef-starter.zip ubuntu@18.224.37.82:/tmp
- *********************************WINDOWS TO PUTTY ******************
- WINSCP
-

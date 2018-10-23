@@ -1,8 +1,0 @@
-*************************TO SET THE REMOTE AS UPSTREAM
-git push --set-upstream git@github.com:loverajarani/game-of-life.git master
-************************TO ALLOW UNRELATED HISTORIES
-git pull yogi master --allow-unrelated-histories
-************************* TO PUSH and PULL
-git push yogi
-git pull yogi
-*********************************
