@@ -1,0 +1,151 @@
+
+******************chef_workstation**********************************
+
+root@ip-172-31-39-65:~/chef-repo/.chef# cat knife.rb
+# See http://docs.chef.io/config_rb_knife.html for more information on knife configuration options
+
+current_dir = File.dirname(__FILE__)
+log_level                :info
+log_location             STDOUT
+node_name                "loverajarani"
+client_key               "#{current_dir}/loverajarani.pem"
+chef_server_url          "https://api.chef.io/organizations/rabidus"
+cookbook_path            ["#{current_dir}/../cookbooks"]
+root@ip-172-31-39-65:~/chef-repo/.chef#
+
+**************** IN AWS *******************************************************
+root@ip-172-31-39-65:~# ls -a
+.  ..  .bash_history  .bashrc  chefdk_3.1.0-1_amd64.deb  chef-repo  chef-starter.zip  loverajarani4091.pem  .profile  snap  .ssh
+root@ip-172-31-39-65:~# cat .profile 
+# ~/.profile: executed by Bourne-compatible login shells.
+
+if [ "$BASH" ]; then
+  if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+  fi
+fi
+
+mesg n || true
+root@ip-172-31-39-65:~#
+
+
+root@ip-172-31-39-65:~# cd chef-repo/
+root@ip-172-31-39-65:~/chef-repo# ls -a
+.  ..  .chef  cookbooks  .gitignore  loverajarani4091.pem  README.md  roles
+root@ip-172-31-39-65:~/chef-repo# cd .chef/
+root@ip-172-31-39-65:~/chef-repo/.chef# ls
+knife.rb  loverajarani.pem  syntaxcache
+root@ip-172-31-39-65:~/chef-repo/.chef# cat loverajarani.pem 
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEA8EqUiXPabkJnVNhhb5/ZNyAOAI/f92NkQ+dkABUdGLLAj/Dx
+VBKNwvqrfMCMwy+dLZsakxkjzj16hXVWYKx5AtkM77e910ZfL7GEzO1n503zzLKe
+ZgVHe63pkbtJOfEhv+ODaEuub/yM3gEF1LlKvYMPoDnmBITJXbkjSw0I+CWvFA9b
+1MUQgLBkaCCooK+42aqyutb1THDmJu1mZ6TxOAFoNUaCBmBAUy2ySvMBwN6OAc5N
+GuNnHUnY/rnpV/0h7nhskCrVgKWbv8gQ4WRYxs0seq+LikeXu5LCOwOU0NuP33S2
+1VDpIvXeD3Uekz6+bKho8UlfusJbk3kepffb+QIDAQABAoIBAB8g6kEsOv3RqGU7
+atP1F0Sm6Gl2OgNoYtLRJQlFsvFCJuP+yKSliqvZoWGV6CZZArmnwDeSKCtNl5O2
+cawwa7TMvXpIiVVcDnS1QIjzsGQsmwrHkPGSeYIyM3Hnm0LgVAjxxlI6i6yCQRV5
+eHHoVyBZ3Cpblcq8EQINO987HxBWQSWAG2JT3rrGYlibHJ2uIl475jJEeoWXw4Ca
+MlrXQT2EOmUTwM7EhIhudpMJ+8a+1n/PlqJREzMdSK5QmBSUfNOYpzouzfNRVcHI
+xDvkyfcGz29PprAU1jmC8CFEmHuyA+w8DLlTLDAHpXxjfIGpTZN5IKgVChA+bD+A
+qF6PK6ECgYEA+65fwq3cUPsp7GIWuZVvN91ofcdvBaAXKL/e6bbcEirsXtAsYkme
+vcb7xwuwv1PuDcqrmd8nlNTU09TVKUjGejZwQoDR6YFHZIzsNWoM4K1pzd5CaGC9
+J+uzWOKxLRsdyA/JpYr3oEftf3PHPS8KG67Kga47tTw3jwCqoaiwq9UCgYEA9Gor
+zWylSztQpFGebmMJBUlC+lP/CjSxwQKJACB7zCboxkuHGc/F0BKl24WuAIyU6x5o
+R7XNYpcU9WAhd3nB64+VA8zzABNpR5F2qbGRENxGSb3NoJt5PYGPZVvMOzH1CFTT
+Q02bwbu9Hzmm+oEoiYKf9waTTNw+UOM6UdVt9ZUCgYBvT5LIrk5Hfp3vDv7P+3hh
+88l3/5FpooE7o4h6Q0aXvmYmFNncaoULmArY4KG+LOeXL/CvMBP4bhzmxzWzeZ1W
+hecmcoTkSioCHZWGli213NxzkX47XbWrB0Kd6DzGHz0Ps3PShGC6gbVXbiRLOhe1
+YJvtuNptcIF9/KR6tPnWNQKBgQCJkw1uxr3Pt+ZvZ4WvCs20DQXHU+pVu01mn9+v
+k5k7U5dornCwRbRJp4V2KCvGIVtdcLMv0hR2byYb6+1Ki91sk1hEWGNbYpG6+BT7
+9Xf7LpHdxhltUrYOudOWMPKnSzpqYxy7YH7QsLUGU3Q6wuKnbEBQUoItHDdzXkOg
+dms7dQKBgBJAlrOqs1YnN4UrAcxcZAiNPn0Ezmx5Jsv/tQqaakhqAchplZsqbQF/
+LA6zKSsqO1Ujm0aM6Lc+j86xhEuAnIrwfjGxHsZNM9uORgUahRcz3dLs8PZtuQ9X
+3JkvjbGlIyHX/wFKWKlQhjcwxMHCDMCMbKGxHLXd0NmKaNdAr+zA
+-----END RSA PRIVATE KEY-----root@ip-172-31-39-65:~/chef-repo/.chef# 
+root@ip-172-31-39-65:~/chef-repo/.chef#
+
+
+##################### in /etc  ###########################
+
+root@ip-172-31-39-65:/etc# cd chef
+-bash: cd: chef: No such file or directory
+root@ip-172-31-39-65:/etc# cd chef-server
+-bash: cd: chef-server: No such file or directory
+root@ip-172-31-39-65:/etc# cd .chef
+-bash: cd: .chef: No such file or directory
+root@ip-172-31-39-65:/etc# 
+
+***************************************************************
+
+
+
+ *****************************IN CHEF_NODE *******************************************
+ 
+ ubuntu@ip-172-31-37-127:~$ cd /etc/
+ubuntu@ip-172-31-37-127:/etc$ cd chef/
+ubuntu@ip-172-31-37-127:/etc/chef$ ls
+chef_guid  client.pem  client.rb  first-boot.json
+ubuntu@ip-172-31-37-127:/etc/chef$ cat chef_guid 
+434c2b93-1f73-4893-896b-56c6a951cc7cubuntu@ip-172-31-37-127:/etc/chef$ 
+ubuntu@ip-172-31-37-127:/etc/chef$ cat client.pem 
+cat: client.pem: Permission denied
+ubuntu@ip-172-31-37-127:/etc/chef$ sudo cat client.pem
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEAyptPsVdU6pJnpPnoFhg3WgS10oGUsb7kDGzw2eR118ywY9Ai
+/uhCleWA3kK3eCdufKkDTGggxJzY7CCjQV3H3M85t/IfI1pJhkSILWjylhluu7nj
+0vpCLgGqm7TmiEpJGWkIIOqx+tZLFXdz2u/zT6wDEQhxRkrQrU0eCytl8/ocar91
+tcjAgd+zsUbat/Q4Cmh2d7lit9PE0vgakjX0Grq7Qo+gOSf+6jIzwBBholZm9Ke6
+c7pk73/90hcGjCHIK+gVpnTDde4LziH4ijY6+F+/IY31/VzlQvO1VpGif7fiZrwR
+KyjiGfia1nZRyvegkujUlMpA3oaNVL/bhCBxoQIDAQABAoIBAQCPj/mqKb2r8U2r
+osEHVuVxzcCght08DY0+GLuZSb8OyKV8NHF3uk/kMxlbZF7ortglUQVbULVXW+SB
+fKbxnGgQWG4Hn3Lc9A8BKvJrat/p59+E+bUrO9VFED0507c+f5TIgpoV6PdwTAQs
+E9ZuHnSD0djiat8I9d5jzi8prvixJRel4ZL2jMgEpjLkLk3TN5hhipPbxSlWaAz8
+t2/+dlOAYX0xFr17hnVz/z5Aehl4FjYrzDn7H/N7KzCHRyT1XL7qPCeLlAZwxjaT
+ax/MntTgoMvAoevoA4B6i8ZEKyWtRjM56JNyzt5rQWRaXG5/3f9bkL7KhTq0fylh
+n4COmsohAoGBAOvjxvvdCjXEsoS0rW5mFCw4h2biaKxsggn1KQpznxya5tSUNMV+
+/ob7+gmNr5M8omxEc/xtbCIie7e9dg3XRfN1D1VpaF6Cu/AF79IFQ/CrmyvNljNJ
+4NfT5ZO0HCSJmGdEqrIR/zKqTq9xz+wE9G1NDAftBuRT/ZYuivPKP/JlAoGBANvh
+JBwseRbooGnAEvIVUMidCjYPZ9C5f/7/4AnKm0kGRxYcAN9eERMk9PluyOAzzbjm
+PFUTsOQsmoqUQuEFYRVAeLWchSrDpn8tsqgMOav6Mza9SOTWFfFq+XFyu6XZZC2G
+OWLqn2W1Ute2zq4IXGaFiK8tZDokq+2FCvD50TCNAoGBALgXeVFSPgecTF24y6je
+zVt9el5Wz63QuOOgirj3ZvNiCEdaqpx+8ZDS0V3nT2Cu72tjOMmFc+Bn3PmWSK2g
+lZzcfG0B6Evp51X4rCLRrSYEJwNWXKQGQgzt97r/0v7Iy0G8myKBXRJjSyksv0HI
+1CEBAiSlXL2QttUf2Z1M9/7pAoGAFSgqs1NMK3oixUooCIcoiMUjkGQXFyxiNoUk
+Z4zJOFOUT3pOUy/X8MGjmMSiK4CQkPQGZiFI6guoqyDs9n3wA316n+75mU3OHXqm
+MClM+1FN0DySYQKAhgRHEDV7/M9YJlE+AFiXEdBKslrytCg1y9+ZcVGqzTVuHaKp
+lNpU2JkCgYEA3kD9jc9IoP0RJfpVG1Gqi7hlN/sl/B5QWyekTj7TrXcikSBHOheL
+RwYt7fzs8Fb+bhKhF+SBWfApRA8VrBwFzwcXLBRmr2RwiB+N49Weu73xo2wnVf0u
+RMXxMv1/iny6v0uIEi2p1h3bLTuBpMsUwY05iXyk2lgDeq6xuw9hf44=
+-----END RSA PRIVATE KEY-----
+
+ubuntu@ip-172-31-37-127:/etc/chef$ cat client.rb 
+chef_server_url  "https://api.chef.io/organizations/rabidus"
+validation_client_name "chef-validator"
+log_location   STDOUT
+node_name "loverajarani"
+
+ubuntu@ip-172-31-37-127:/etc/chef$ cat first-boot.json 
+{"run_list":["recipe[chef_dk]"]}
+ubuntu@ip-172-31-37-127:/etc/chef$ 
+
+
+ubuntu@ip-172-31-37-127:/etc/chef$ cd
+ubuntu@ip-172-31-37-127:~$ cd /var/
+ubuntu@ip-172-31-37-127:/var$ ls
+backups  chef   lib    lock  mail  run   spool
+cache    crash  local  log   opt   snap  tmp
+ubuntu@ip-172-31-37-127:/var$ cd chef/
+ubuntu@ip-172-31-37-127:/var/chef$ ls
+cache
+ubuntu@ip-172-31-37-127:/var/chef$ cd cache/
+ubuntu@ip-172-31-37-127:/var/chef/cache$ ls
+chef-client-running.pid  cookbooks  data_collector_metadata.json
+ubuntu@ip-172-31-37-127:/var/chef/cache$ cat chef-client-running.pid 
+2275ubuntu@ip-172-31-37-127:/var/chef/cache$ 
+ubuntu@ip-172-31-37-127:/var/chef/cache$ cat data_collector_metadata.json 
+{"node_uuid":"434c2b93-1f73-4893-896b-56c6a951cc7c"}ubuntu@ip-172-31-37-127:/var/chef/cache$ 
+ubuntu@ip-172-31-37-127:/var/chef/cache$ cd cookbooks/
+ubuntu@ip-172-31-37-127:/var/chef/cache/cookbooks$ ls
+chef_dk
+ubuntu@ip-172-31-37-127:/var/chef/cache/cookbooks$ 

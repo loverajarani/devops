@@ -1,0 +1,35 @@
+sudo -i
+yum install java-1.8.0-openjdk
+java -version
+update-alternatives --config java
+/usr/sbin/alternatives --config java
+cd /usr/lib
+ls
+java-1.8.0 ....................all related versions shown
+export JAVA_HOME=/usr/lib/java-1.8.0
+***************************************************************]\
+
+AWS-LINUX INSTANCE UPGRADE JAVA 1.7 TO 1.8
+
+java -version
+sudo yum update
+sudo yum install java-1.8.0               (OR) sudo yum install java-1.8.0-openjdk-devel
+sudo yum remove java-1.7.0-openjdk
+java -version
+sudo /usr/sbin/alternatives --config java
+sudo /usr/sbin/alternatives --config javac
+****************************************************************
+ 
+ ******************************** jenkins *************************************
+ cat /etc/os-release
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+yum install crul
+yum install rpm
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum update
+wget https://pkg.jenkins.io/redhat-stable/jenkins-2.138.1-1.1.noarch.rpm
+yum install jenkins
+service jenkins start
+----------------(service jenkins start/stop/restart)------------check in browser
+ssh slaves,mavaen integrator,github,Matrix Authorization Strategy
+*************************************************************************************************
