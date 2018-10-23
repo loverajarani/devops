@@ -1,3 +1,18 @@
 ansible all -m ping 
 ansible agent -m file -a 'path=/root/xyz.txt state=touch' -u root
-ansible agent 
+ansible -m ping all
+ansible -m ping agent
+ansible -m ping agent:master
+find . -type f -exec chmod -x {} \;            ------------------># IF ANSIBLE-PLAYBOOK NOT FOUND EXECUTE THIS IN UBUNTU
+ansible-playbook -i hosts sample.yml ------------------------IF IT NOT WORK USE BELOW
+ansible-playbook sample.yml
+****************************************************************************************************************
+example file for palybook -----sample.yml file
+****************************************************************************************************************
+---
+- hosts: dba
+  tasks:
+          - name: run echo command
+            command: /bin/echo hello raja
+*******************************************************************************************************************
+
