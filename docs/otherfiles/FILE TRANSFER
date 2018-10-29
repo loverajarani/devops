@@ -3,4 +3,4 @@ https://help.skytap.com/Adding_Sharing_Files.html
  scp -i awskey.pem chef-starter.zip ubuntu@18.224.37.82:/tmp
  *********************************WINDOWS TO PUTTY ******************
  WINSCP
-
+scp -r apache2.conf root@18.205.234.96:/etc/ansible/roles/websphere/files
