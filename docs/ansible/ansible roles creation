@@ -1,0 +1,167 @@
+ubuntu@master:~$ sudo -i
+root@master:~# clear
+root@master:~# cd /etc/ansible/
+root@master:/etc/ansible# cd roles/
+root@master:/etc/ansible/roles# tree websphere/
+websphere/
+├── README.md
+├── defaults
+│   └── main.yml
+├── files
+│   ├── apache2.conf
+│   └── index.html
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── tasks
+│   ├── configure.yml
+│   ├── install.yml
+│   ├── main.yml
+│   └── service.yml
+├── templates
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+
+8 directories, 13 files
+root@master:/etc/ansible/roles# cd websphere/
+root@master:/etc/ansible/roles/websphere# ls
+README.md  defaults  files  handlers  meta  tasks  templates  tests  vars
+root@master:/etc/ansible/roles/websphere# cat tasks/
+cat: tasks/: Is a directory
+root@master:/etc/ansible/roles/websphere# vi tasks/
+root@master:/etc/ansible/roles/websphere# cd tasks/
+root@master:/etc/ansible/roles/websphere/tasks# ls
+configure.yml  install.yml  main.yml  service.yml
+root@master:/etc/ansible/roles/websphere/tasks# cat configure.yml
+---
+- name: coping apache2 configuration file
+  copy: src=/etc/ansible/roles/websphere/files/apache2.conf dest=/etc/apache2/apache2.conf
+  notify:
+  - restarted apache2 service
+- name: send index.html
+  copy: src=/etc/ansible/roles/websphere/files/index.html dest=/var/www/html/index.html
+
+root@master:/etc/ansible/roles/websphere/tasks# cat install.yml
+---
+- name: install apache2
+  apt: name=apache2 state=present update_cache=yes
+
+root@master:/etc/ansible/roles/websphere/tasks# cat main.yml
+---
+- include: install.yml
+- include: configure.yml
+- include: service.yml
+# tasks file for websphere
+root@master:/etc/ansible/roles/websphere/tasks# cat service.yml
+---
+- name: start servicing
+  service: name=apache2 state=started
+root@master:/etc/ansible/roles/websphere/tasks#
+root@master:/etc/ansible/roles/websphere/tasks# cd ..
+root@master:/etc/ansible/roles/websphere# ls
+README.md  defaults  files  handlers  meta  tasks  templates  tests  vars
+root@master:/etc/ansible/roles/websphere# cd files/
+root@master:/etc/ansible/roles/websphere/files# ls
+apache2.conf  index.html
+root@master:/etc/ansible/roles/websphere/files# cat index.html
+<html>
+        <body>
+                welcome to role concept
+        </body>
+</html>
+
+root@master:/etc/ansible/roles/websphere/files# cd ..
+root@master:/etc/ansible/roles/websphere# ls
+README.md  defaults  files  handlers  meta  tasks  templates  tests  vars
+root@master:/etc/ansible/roles/websphere# cd handlers/
+root@master:/etc/ansible/roles/websphere/handlers# ls
+main.yml
+root@master:/etc/ansible/roles/websphere/handlers# cat main.yml
+---
+- name: restart apache2 service
+  service: name=apache2 state=restarted
+
+# handlers file for websphere
+root@master:/etc/ansible/roles/websphere/handlers# cd ..
+root@master:/etc/ansible/roles/websphere# ls
+README.md  defaults  files  handlers  meta  tasks  templates  tests  vars
+root@master:/etc/ansible/roles/websphere# cd meta/
+root@master:/etc/ansible/roles/websphere/meta# ls
+main.yml
+root@master:/etc/ansible/roles/websphere/meta# cat main.yml
+galaxy_info:
+  author: server creation
+  description: apache2 creation done by ansible_roles
+  company: oracle
+
+  # If the issue tracker for your role is not on github, uncomment the
+  # next line and provide a value
+  # issue_tracker_url: http://example.com/issue/tracker
+
+  # Some suggested licenses:
+  # - BSD (default)
+  # - MIT
+  # - GPLv2
+  # - GPLv3
+  # - Apache
+  # - CC-BY
+  license: license (GPLv2, CC-BY, etc)
+
+  min_ansible_version: 2.4
+
+  # If this a Container Enabled role, provide the minimum Ansible Container version.
+  # min_ansible_container_version:
+
+  # Optionally specify the branch Galaxy will use when accessing the GitHub
+  # repo for this role. During role install, if no tags are available,
+  # Galaxy will use this branch. During import Galaxy will access files on
+  # this branch. If Travis integration is configured, only notifications for this
+  # branch will be accepted. Otherwise, in all cases, the repo's default branch
+  # (usually master) will be used.
+  #github_branch:
+
+  #
+  # Provide a list of supported platforms, and for each platform a list of versions.
+  # If you don't wish to enumerate all versions for a particular platform, use 'all'.
+  # To view available platforms and versions (or releases), visit:
+  # https://galaxy.ansible.com/api/v1/platforms/
+  #
+  # platforms:
+  # - name: Fedora
+  #   versions:
+  #   - all
+  #   - 25
+  # - name: SomePlatform
+  #   versions:
+  #   - all
+  #   - 1.0
+  #   - 7
+  #   - 99.99
+
+  galaxy_tags: []
+    # List tags for your role here, one per line. A tag is a keyword that describes
+    # and categorizes the role. Users find roles by searching for tags. Be sure to
+    # remove the '[]' above, if you add tags to this list.
+    #
+    # NOTE: A tag is limited to a single word comprised of alphanumeric characters.
+    #       Maximum 20 tags per role.
+
+dependencies: []
+  # List your role dependencies here, one per line. Be sure to remove the '[]' above,
+  # if you add dependencies to this list.
+root@master:/etc/ansible/roles/websphere/meta# cd ..
+root@master:/etc/ansible/roles/websphere# ls
+README.md  defaults  files  handlers  meta  tasks  templates  tests  vars
+root@master:/etc/ansible/roles/websphere# cd ..
+root@master:/etc/ansible/roles# cd ..
+root@master:/etc/ansible# cd playbooks/
+root@master:/etc/ansible/playbooks# cat apache2setup.yml
+---
+- hosts: dba
+  roles:
+          - websphere
+root@master:/etc/ansible/playbooks#
