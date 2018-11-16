@@ -1,0 +1,682 @@
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ vi samplegitproject.txt
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        samplegitproject.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git config --global name "raja"
+error: key does not contain a section: name
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git config help
+error: key does not contain a section: help
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git config --help
+Launching default browser to display HTML ...
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ clear
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git add remote origin https://github.com/loverajarani/4091.git
+fatal: pathspec 'remote' did not match any files
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git remote -v
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git remote add origin https://github.com/loverajarani/4091.git
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git remote -v
+origin  https://github.com/loverajarani/4091.git (fetch)
+origin  https://github.com/loverajarani/4091.git (push)
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git pull origin
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/loverajarani/4091
+ * [new branch]      master     -> origin/master
+You asked to pull from the remote 'origin', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+samplegitproject.txt
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git pull origin master
+From https://github.com/loverajarani/4091
+ * branch            master     -> FETCH_HEAD
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  samplegitproject.txt
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git push git@github.com:loverajarani/4091.git
+Everything up-to-date
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  samplegitproject.txt
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git push -u git@github.com:loverajarani/4091.git
+Branch master set up to track remote branch master from git@github.com:loverajarani/4091.git.
+Everything up-to-date
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        samplegitproject.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git add .
+warning: LF will be replaced by CRLF in samplegitproject.txt.
+The file will have its original line endings in your working directory.
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   samplegitproject.txt
+
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git commit -m "sampl project is commited"
+[master 03e2e21] sampl project is commited
+warning: LF will be replaced by CRLF in samplegitproject.txt.
+The file will have its original line endings in your working directory.
+ 1 file changed, 3 insertions(+)
+ create mode 100644 samplegitproject.txt
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git push git@github.com:loverajarani/4091.git
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 337 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:loverajarani/4091.git
+   81b6dc8..03e2e21  master -> master
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ touch t1 .. t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  samplegitproject.txt  t1  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ cat t1
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git add t1
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   t1
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t5
+
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git rm -r t5
+fatal: pathspec 't5' did not match any files
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git rm t5
+fatal: pathspec 't5' did not match any files
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git stash
+Saved working directory and index state WIP on master: 03e2e21 sampl project is commited
+HEAD is now at 03e2e21 sampl project is commited
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls -a
+./  ../  .git/  README.md  samplegitproject.txt  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ cd .git
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091/.git (GIT_DIR!)
+$ ls
+COMMIT_EDITMSG  description  HEAD    index  logs/     ORIG_HEAD
+config          FETCH_HEAD   hooks/  info/  objects/  refs/
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091/.git (GIT_DIR!)
+$ cat FETCH_HEAD
+81b6dc811002363605b57cba822ac0915558f2ef                branch 'master' of https://github.com/loverajarani/4091
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091/.git (GIT_DIR!)
+$ cat HEAD
+ref: refs/heads/master
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091/.git (GIT_DIR!)
+$ cat hooks/
+cat: hooks/: Is a directory
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091/.git (GIT_DIR!)
+$ ls hooks/
+applypatch-msg.sample*  pre-applypatch.sample*      pre-push.sample*
+commit-msg.sample*      pre-commit.sample*          pre-rebase.sample*
+post-update.sample*     prepare-commit-msg.sample*  update.sample*
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091/.git (GIT_DIR!)
+$ ls
+COMMIT_EDITMSG  description  HEAD    index  logs/     ORIG_HEAD
+config          FETCH_HEAD   hooks/  info/  objects/  refs/
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091/.git (GIT_DIR!)
+$ cd ..
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  samplegitproject.txt  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t5
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ touch t1
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git add t1
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   t1
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t5
+
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git revert t1
+fatal: bad revision 't1'
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   t1
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t5
+
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git checkout
+A       t1
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+Did you mean this?
+        status
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   t1
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t5
+
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git revert t1
+fatal: bad revision 't1'
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git revert
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <n>    parent number
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git revert --continue t1
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <n>    parent number
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git revert -n t1
+fatal: bad revision 't1'
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git resett1
+git: 'resett1' is not a git command. See 'git --help'.
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git reset t1
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t1
+        t5
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git reflog
+03e2e21 HEAD@{0}: commit: sampl project is commited
+81b6dc8 HEAD@{1}: initial pull
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git revert 03e2e21
+[master 3521417] Revert "sampl project is commited"
+ 1 file changed, 3 deletions(-)
+ delete mode 100644 samplegitproject.txt
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  t1  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t1
+        t5
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git commit -m "sample file deleted"
+On branch master
+Untracked files:
+        t1
+        t5
+
+nothing added to commit but untracked files present
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git push origin master
+Username for 'https://github.com':
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git push git@github.com:loverajarani/4091.git
+Counting objects: 2, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (1/1), done.
+Writing objects: 100% (2/2), 254 bytes | 0 bytes/s, done.
+Total 2 (delta 0), reused 0 (delta 0)
+To git@github.com:loverajarani/4091.git
+   03e2e21..3521417  master -> master
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git rebase master
+Current branch master is up to date.
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  t1  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git branch test
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git checkout
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  t1  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git checkout test
+Switched to branch 'test'
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ touch t2
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ touch t3
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ touch t4
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git add t2 t3
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git commit -m "t2 t3
+> "
+[test 2ed7286] t2 t3
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 t2
+ create mode 100644 t3
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+Did you mean this?
+        status
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git status
+On branch test
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t1
+        t4
+        t5
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git add t4
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git add t1
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git push git@github.com:loverajarani/4091.git
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 258 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'test' on GitHub by visiting:
+remote:      https://github.com/loverajarani/4091/pull/new/test
+remote:
+To git@github.com:loverajarani/4091.git
+ * [new branch]      test -> test
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git merge master
+Already up-to-date.
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ ls
+README.md  t1  t2  t3  t4  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git checkout master
+A       t1
+A       t4
+Switched to branch 'master'
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  t1  t4  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git rebase test
+Cannot rebase: Your index contains uncommitted changes.
+Please commit or stash them.
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   t1
+        new file:   t4
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t5
+
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git stash
+Saved working directory and index state WIP on master: 3521417 Revert "sampl project is commited"
+HEAD is now at 3521417 Revert "sampl project is commited"
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git rebase test
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to test.
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  t2  t3  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ cat>>t2
+sdfasfda
+dfasdsfadf
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git checkout test
+M       t2
+Switched to branch 'test'
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ ls
+README.md  t2  t3  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ cat t2
+sdfasfda
+dfasdsfadf
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ cat>>t2
+fasdfasdf
+fasdfasdf
+sdfsadf
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git checkout master
+M       t2
+Switched to branch 'master'
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  t2  t3  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ cat t2
+sdfasfda
+dfasdsfadf
+fasdfasdf
+fasdfasdf
+sdfsadf
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git merge test
+Already up-to-date.
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  t2  t3  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ vi t2
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git statsu
+git: 'statsu' is not a git command. See 'git --help'.
+
+Did you mean this?
+        status
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   t2
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t5
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git checkout --t2
+error: unknown option `t2'
+usage: git checkout [<options>] <branch>
+   or: git checkout [<options>] [<branch>] -- <file>...
+
+    -q, --quiet           suppress progress reporting
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --detach              detach the HEAD at named commit
+    -t, --track           set upstream info for new branch
+    --orphan <new-branch>
+                          new unparented branch
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -f, --force           force checkout (throw away local modifications)
+    -m, --merge           perform a 3-way merge with the new branch
+    --overwrite-ignore    update ignored files (default)
+    --conflict <style>    conflict style (merge or diff3)
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --ignore-other-worktrees
+                          do not check if another worktree is holding the given ref
+    --progress            force progress reporting
+
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git checkout -- t2
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        t5
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  t2  t3  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ git checkout test
+Switched to branch 'test'
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ ls
+README.md  t2  t3  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ cat t2
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (test)
+$ git checkout master
+Switched to branch 'master'
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ ls
+README.md  t2  t3  t5
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ cat t2
+
+welcome@welcome-PC MINGW64 /c/gitproject/4091 (master)
+$ exit
