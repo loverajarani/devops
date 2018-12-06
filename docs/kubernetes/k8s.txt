@@ -1,0 +1,494 @@
+Using username "ubuntu".
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1021-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Dec  6 09:27:22 UTC 2018
+
+  System load:  0.0               Processes:           95
+  Usage of /:   13.3% of 7.69GB   Users logged in:     0
+  Memory usage: 2%                IP address for eth0: 172.31.83.219
+  Swap usage:   0%
+
+
+ * MicroK8s is Kubernetes in a snap. Made by devs for devs.
+   One quick install on a workstation, VM, or appliance.
+
+   - http://bit.ly/microk8s
+
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ip-172-31-83-219:~$ sudo -i
+root@ip-172-31-83-219:~# apt-get update && sudo apt-get install -y apt-transport-https
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main Sources [829 kB]
+Get:5 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe Sources [9051 kB]
+Get:6 http://security.ubuntu.com/ubuntu bionic-security InRelease [83.2 kB]
+Get:7 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/restricted Sources [5324 B]
+Get:8 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/multiverse Sources [181 kB]
+Get:9 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+Get:10 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe Translation-en [4941 kB]
+Get:11 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+Get:12 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+Get:13 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/restricted Sources [2064 B]
+Get:14 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse Sources [3824 B]
+Get:15 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main Sources [218 kB]
+Get:16 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe Sources [105 kB]
+Get:17 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [454 kB]
+Get:18 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [169 kB]
+Get:19 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [6992 B]
+Get:20 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/restricted Translation-en [3076 B]
+Get:21 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [588 kB]
+Get:22 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [161 kB]
+Get:23 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [6372 B]
+Get:24 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [3356 B]
+Get:25 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe Sources [2068 B]
+Get:26 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [3468 B]
+Get:27 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [1604 B]
+Get:28 http://security.ubuntu.com/ubuntu bionic-security/universe Sources [25.7 kB]
+Get:29 http://security.ubuntu.com/ubuntu bionic-security/multiverse Sources [1336 B]
+Get:30 http://security.ubuntu.com/ubuntu bionic-security/main Sources [64.1 kB]
+Get:31 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [218 kB]
+Get:32 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [84.0 kB]
+Get:33 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [101 kB]
+Get:34 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [56.5 kB]
+Get:35 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [1440 B]
+Get:36 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [996 B]
+Fetched 26.4 MB in 4s (6269 kB/s)
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  apt-transport-https
+0 upgraded, 1 newly installed, 0 to remove and 114 not upgraded.
+Need to get 1692 B of archives.
+After this operation, 152 kB of additional disk space will be used.
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 apt-transport-https all 1.6.6 [1692 B]
+Fetched 1692 B in 0s (0 B/s)
+Selecting previously unselected package apt-transport-https.
+(Reading database ... 56473 files and directories currently installed.)
+Preparing to unpack .../apt-transport-https_1.6.6_all.deb ...
+Unpacking apt-transport-https (1.6.6) ...
+Setting up apt-transport-https (1.6.6) ...
+root@ip-172-31-83-219:~# curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+OK
+root@ip-172-31-83-219:~# echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+root@ip-172-31-83-219:~# sudo apt-get update
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Get:5 https://packages.cloud.google.com/apt kubernetes-xenial InRelease [8993 B]
+Get:6 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 Packages [21.8 kB]
+Fetched 30.8 kB in 1s (48.7 kB/s)
+Reading package lists... Done
+root@ip-172-31-83-219:~# apt-get update
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:5 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:4 https://packages.cloud.google.com/apt kubernetes-xenial InRelease
+Reading package lists... Done
+root@ip-172-31-83-219:~# apt-get install -y docker.io
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  bridge-utils cgroupfs-mount libltdl7 pigz ubuntu-fan
+Suggested packages:
+  ifupdown aufs-tools debootstrap docker-doc rinse zfs-fuse | zfsutils
+The following NEW packages will be installed:
+  bridge-utils cgroupfs-mount docker.io libltdl7 pigz ubuntu-fan
+0 upgraded, 6 newly installed, 0 to remove and 114 not upgraded.
+Need to get 40.3 MB of archives.
+After this operation, 198 MB of additional disk space will be used.
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 pigz amd64 2.4-1 [57.4 kB]
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 bridge-utils amd64 1.5-15ubuntu1 [30.1 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 cgroupfs-mount all 1.4 [6320 B]
+Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 libltdl7 amd64 2.4.6-2 [38.8 kB]
+Get:5 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 docker.io amd64 18.06.1-0ubuntu1~18.04.1 [40.2 MB]
+Get:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 ubuntu-fan all 0.12.10 [34.7 kB]
+Fetched 40.3 MB in 1s (57.1 MB/s)
+Preconfiguring packages ...
+Selecting previously unselected package pigz.
+(Reading database ... 56477 files and directories currently installed.)
+Preparing to unpack .../0-pigz_2.4-1_amd64.deb ...
+Unpacking pigz (2.4-1) ...
+Selecting previously unselected package bridge-utils.
+Preparing to unpack .../1-bridge-utils_1.5-15ubuntu1_amd64.deb ...
+Unpacking bridge-utils (1.5-15ubuntu1) ...
+Selecting previously unselected package cgroupfs-mount.
+Preparing to unpack .../2-cgroupfs-mount_1.4_all.deb ...
+Unpacking cgroupfs-mount (1.4) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../3-libltdl7_2.4.6-2_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.6-2) ...
+Selecting previously unselected package docker.io.
+Preparing to unpack .../4-docker.io_18.06.1-0ubuntu1~18.04.1_amd64.deb ...
+Unpacking docker.io (18.06.1-0ubuntu1~18.04.1) ...
+Selecting previously unselected package ubuntu-fan.
+Preparing to unpack .../5-ubuntu-fan_0.12.10_all.deb ...
+Unpacking ubuntu-fan (0.12.10) ...
+Processing triggers for ureadahead (0.100.0-20) ...
+Setting up cgroupfs-mount (1.4) ...
+Setting up bridge-utils (1.5-15ubuntu1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Setting up ubuntu-fan (0.12.10) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/ubuntu-fan.service ? /lib/systemd/system/ubuntu-fan.service.
+Processing triggers for systemd (237-3ubuntu10.3) ...
+Setting up libltdl7:amd64 (2.4.6-2) ...
+Processing triggers for man-db (2.8.3-2) ...
+Setting up pigz (2.4-1) ...
+Setting up docker.io (18.06.1-0ubuntu1~18.04.1) ...
+Adding group `docker' (GID 115) ...
+Done.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket ? /lib/systemd/system/docker.socket.
+Processing triggers for ureadahead (0.100.0-20) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Processing triggers for systemd (237-3ubuntu10.3) ...
+root@ip-172-31-83-219:~# apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  cri-tools socat
+The following NEW packages will be installed:
+  cri-tools kubeadm kubectl kubelet kubernetes-cni socat
+0 upgraded, 6 newly installed, 0 to remove and 114 not upgraded.
+Need to get 45.9 MB of archives.
+After this operation, 264 MB of additional disk space will be used.
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 socat amd64 1.7.3.2-2ubuntu2 [342 kB]
+Get:2 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 cri-tools amd64 1.12.0-00 [5343 kB]
+Get:3 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubernetes-cni amd64 0.6.0-00 [5910 kB]
+Get:4 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubelet amd64 1.13.0-00 [19.1 MB]
+Get:5 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubectl amd64 1.13.0-00 [7841 kB]
+Get:6 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubeadm amd64 1.13.0-00 [7355 kB]
+Fetched 45.9 MB in 2s (21.7 MB/s)
+Selecting previously unselected package cri-tools.
+(Reading database ... 56758 files and directories currently installed.)
+Preparing to unpack .../0-cri-tools_1.12.0-00_amd64.deb ...
+Unpacking cri-tools (1.12.0-00) ...
+Selecting previously unselected package kubernetes-cni.
+Preparing to unpack .../1-kubernetes-cni_0.6.0-00_amd64.deb ...
+Unpacking kubernetes-cni (0.6.0-00) ...
+Selecting previously unselected package socat.
+Preparing to unpack .../2-socat_1.7.3.2-2ubuntu2_amd64.deb ...
+Unpacking socat (1.7.3.2-2ubuntu2) ...
+Selecting previously unselected package kubelet.
+Preparing to unpack .../3-kubelet_1.13.0-00_amd64.deb ...
+Unpacking kubelet (1.13.0-00) ...
+Selecting previously unselected package kubectl.
+Preparing to unpack .../4-kubectl_1.13.0-00_amd64.deb ...
+Unpacking kubectl (1.13.0-00) ...
+Selecting previously unselected package kubeadm.
+Preparing to unpack .../5-kubeadm_1.13.0-00_amd64.deb ...
+Unpacking kubeadm (1.13.0-00) ...
+Setting up kubernetes-cni (0.6.0-00) ...
+Setting up cri-tools (1.12.0-00) ...
+Setting up socat (1.7.3.2-2ubuntu2) ...
+Setting up kubelet (1.13.0-00) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/kubelet.service ? /lib/systemd/system/kubelet.service.
+Setting up kubectl (1.13.0-00) ...
+Processing triggers for man-db (2.8.3-2) ...
+Setting up kubeadm (1.13.0-00) ...
+root@ip-172-31-83-219:~# kubeadm init
+[init] Using Kubernetes version: v1.13.0
+[preflight] Running pre-flight checks
+        [WARNING Service-Docker]: docker service is not enabled, please run 'systemctl enable docker.service'
+[preflight] Pulling images required for setting up a Kubernetes cluster
+[preflight] This might take a minute or two, depending on the speed of your internet connection
+[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'
+[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+[kubelet-start] Activating the kubelet service
+[certs] Using certificateDir folder "/etc/kubernetes/pki"
+[certs] Generating "front-proxy-ca" certificate and key
+[certs] Generating "front-proxy-client" certificate and key
+[certs] Generating "etcd/ca" certificate and key
+[certs] Generating "etcd/server" certificate and key
+[certs] etcd/server serving cert is signed for DNS names [ip-172-31-83-219 localhost] and IPs [172.31.83.219 127.0.0.1 ::1]
+[certs] Generating "etcd/peer" certificate and key
+[certs] etcd/peer serving cert is signed for DNS names [ip-172-31-83-219 localhost] and IPs [172.31.83.219 127.0.0.1 ::1]
+[certs] Generating "etcd/healthcheck-client" certificate and key
+[certs] Generating "apiserver-etcd-client" certificate and key
+[certs] Generating "ca" certificate and key
+[certs] Generating "apiserver" certificate and key
+[certs] apiserver serving cert is signed for DNS names [ip-172-31-83-219 kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 172.31.83.219]
+[certs] Generating "apiserver-kubelet-client" certificate and key
+[certs] Generating "sa" key and public key
+[kubeconfig] Using kubeconfig folder "/etc/kubernetes"
+[kubeconfig] Writing "admin.conf" kubeconfig file
+[kubeconfig] Writing "kubelet.conf" kubeconfig file
+[kubeconfig] Writing "controller-manager.conf" kubeconfig file
+[kubeconfig] Writing "scheduler.conf" kubeconfig file
+[control-plane] Using manifest folder "/etc/kubernetes/manifests"
+[control-plane] Creating static Pod manifest for "kube-apiserver"
+[control-plane] Creating static Pod manifest for "kube-controller-manager"
+[control-plane] Creating static Pod manifest for "kube-scheduler"
+[etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"
+[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s
+[apiclient] All control plane components are healthy after 25.002146 seconds
+[uploadconfig] storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace
+[kubelet] Creating a ConfigMap "kubelet-config-1.13" in namespace kube-system with the configuration for the kubelets in the cluster
+[patchnode] Uploading the CRI Socket information "/var/run/dockershim.sock" to the Node API object "ip-172-31-83-219" as an annotation
+[mark-control-plane] Marking the node ip-172-31-83-219 as control-plane by adding the label "node-role.kubernetes.io/master=''"
+[mark-control-plane] Marking the node ip-172-31-83-219 as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule]
+[bootstrap-token] Using token: vr9nmz.yucbbaxfcg0kl4ir
+[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles
+[bootstraptoken] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
+[bootstraptoken] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
+[bootstraptoken] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster
+[bootstraptoken] creating the "cluster-info" ConfigMap in the "kube-public" namespace
+[addons] Applied essential addon: CoreDNS
+[addons] Applied essential addon: kube-proxy
+
+Your Kubernetes master has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+You can now join any number of machines by running the following on each node
+as root:
+
+  kubeadm join 172.31.83.219:6443 --token vr9nmz.yucbbaxfcg0kl4ir --discovery-token-ca-cert-hash sha256:5eabb5c8930e7180e7a17d4a15618827fca089d49c26b15be81f4665e77cd93c
+
+root@ip-172-31-83-219:~# kubectl -version
+Error: invalid argument "ersion" for "-v, --v" flag: strconv.Atoi: parsing "ersion": invalid syntax
+
+
+Basic Commands (Beginner):
+  create         Create a resource from a file or from stdin.
+  expose         Take a replication controller, service, deployment or pod and expose it as a new Kubernetes Service
+  run            Run a particular image on the cluster
+  set            Set specific features on objects
+
+Basic Commands (Intermediate):
+  explain        Documentation of resources
+  get            Display one or many resources
+  edit           Edit a resource on the server
+  delete         Delete resources by filenames, stdin, resources and names, or by resources and label selector
+
+Deploy Commands:
+  rollout        Manage the rollout of a resource
+  scale          Set a new size for a Deployment, ReplicaSet, Replication Controller, or Job
+  autoscale      Auto-scale a Deployment, ReplicaSet, or ReplicationController
+
+Cluster Management Commands:
+  certificate    Modify certificate resources.
+  cluster-info   Display cluster info
+  top            Display Resource (CPU/Memory/Storage) usage.
+  cordon         Mark node as unschedulable
+  uncordon       Mark node as schedulable
+  drain          Drain node in preparation for maintenance
+  taint          Update the taints on one or more nodes
+
+Troubleshooting and Debugging Commands:
+  describe       Show details of a specific resource or group of resources
+  logs           Print the logs for a container in a pod
+  attach         Attach to a running container
+  exec           Execute a command in a container
+  port-forward   Forward one or more local ports to a pod
+  proxy          Run a proxy to the Kubernetes API server
+  cp             Copy files and directories to and from containers.
+  auth           Inspect authorization
+
+Advanced Commands:
+  diff           Diff live version against would-be applied version
+  apply          Apply a configuration to a resource by filename or stdin
+  patch          Update field(s) of a resource using strategic merge patch
+  replace        Replace a resource by filename or stdin
+  wait           Experimental: Wait for a specific condition on one or many resources.
+  convert        Convert config files between different API versions
+
+Settings Commands:
+  label          Update the labels on a resource
+  annotate       Update the annotations on a resource
+  completion     Output shell completion code for the specified shell (bash or zsh)
+
+Other Commands:
+  api-resources  Print the supported API resources on the server
+  api-versions   Print the supported API versions on the server, in the form of "group/version"
+  config         Modify kubeconfig files
+  plugin         Provides utilities for interacting with plugins.
+  version        Print the client and server version information
+
+Usage:
+  kubectl [flags] [options]
+
+Use "kubectl <command> --help" for more information about a given command.
+Use "kubectl options" for a list of global command-line options (applies to all commands).
+
+invalid argument "ersion" for "-v, --v" flag: strconv.Atoi: parsing "ersion": invalid syntax
+root@ip-172-31-83-219:~# kubectl version
+Client Version: version.Info{Major:"1", Minor:"13", GitVersion:"v1.13.0", GitCommit:"ddf47ac13c1a9483ea035a79cd7c10005ff21a6d", GitTreeState:"clean", BuildDate:"2018-12-03T21:04:45Z", GoVersion:"go1.11.2", Compiler:"gc", Platform:"linux/amd64"}
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+root@ip-172-31-83-219:~# kubectl get nodes
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Dec  6 09:45:33 UTC 2018
+
+  System load:  0.0               Processes:              122
+  Usage of /:   31.7% of 7.69GB   Users logged in:        1
+  Memory usage: 8%                IP address for eth0:    172.31.83.219
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+
+ * MicroK8s is Kubernetes in a snap. Made by devs for devs.
+   One quick install on a workstation, VM, or appliance.
+
+   - http://bit.ly/microk8s
+
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+115 packages can be updated.
+46 updates are security updates.
+
+
+Last login: Thu Dec  6 09:27:24 2018 from 183.82.223.7
+ubuntu@ip-172-31-83-219:~$ sudo -i
+root@ip-172-31-83-219:~# clear
+root@ip-172-31-83-219:~# kubectl cluster-info
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+The connection to the server localhost:8080 was refused - did you specify the ri
+root@ip-172-31-83-219:~# mkdir -p $HOME/.kube
+root@ip-172-31-83-219:~# cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+root@ip-172-31-83-219:~# chown $(id -u):$(id -g) $HOME/.kube/config
+root@ip-172-31-83-219:~# kubectl get nodes
+NAME               STATUS     ROLES    AGE   VERSION
+ip-172-31-83-219   NotReady   master   14m   v1.13.0
+root@ip-172-31-83-219:~# kubectl cluster-info
+Kubernetes master is running at https://172.31.83.219:6443
+KubeDNS is running at https://172.31.83.219:6443/api/v1/namespaces/kube-system/soxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+root@ip-172-31-83-219:~# kubectl apply -f https://git.io/weave-kube-1.6
+serviceaccount/weave-net created
+clusterrole.rbac.authorization.k8s.io/weave-net created
+clusterrolebinding.rbac.authorization.k8s.io/weave-net created
+role.rbac.authorization.k8s.io/weave-net created
+rolebinding.rbac.authorization.k8s.io/weave-net created
+daemonset.extensions/weave-net created
+root@ip-172-31-83-219:~# kubectl get nodes
+NAME               STATUS   ROLES    AGE   VERSION
+ip-172-31-83-219   Ready    master   16m   v1.13.0
+root@ip-172-31-83-219:~# kubectl get pods --all-namespaces
+NAMESPACE     NAME                                       READY   STATUS    RESTA
+kube-system   coredns-86c58d9df4-4kzj7                   1/1     Running   0
+kube-system   coredns-86c58d9df4-jwtq7                   1/1     Running   0
+kube-system   etcd-ip-172-31-83-219                      1/1     Running   0
+kube-system   kube-apiserver-ip-172-31-83-219            1/1     Running   0
+kube-system   kube-controller-manager-ip-172-31-83-219   1/1     Running   0
+kube-system   kube-proxy-pzlln                           1/1     Running   0
+kube-system   kube-scheduler-ip-172-31-83-219            1/1     Running   0
+kube-system   weave-net-dgh4h                            2/2     Running   0
+root@ip-172-31-83-219:~# kubectl --help
+kubectl controls the Kubernetes cluster manager.
+
+Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
+
+Basic Commands (Beginner):
+  create         Create a resource from a file or from stdin.
+  expose         Take a replication controller, service, deployment or pod and e
+Kubernetes Service
+  run            Run a particular image on the cluster
+  set            Set specific features on objects
+
+Basic Commands (Intermediate):
+  explain        Documentation of resources
+  get            Display one or many resources
+  edit           Edit a resource on the server
+  delete         Delete resources by filenames, stdin, resources and names, or b
+label selector
+
+Deploy Commands:
+  rollout        Manage the rollout of a resource
+  scale          Set a new size for a Deployment, ReplicaSet, Replication Contro
+  autoscale      Auto-scale a Deployment, ReplicaSet, or ReplicationController
+
+Cluster Management Commands:
+  certificate    Modify certificate resources.
+  cluster-info   Display cluster info
+  top            Display Resource (CPU/Memory/Storage) usage.
+  cordon         Mark node as unschedulable
+  uncordon       Mark node as schedulable
+  drain          Drain node in preparation for maintenance
+  taint          Update the taints on one or more nodes
+
+Troubleshooting and Debugging Commands:
+  describe       Show details of a specific resource or group of resources
+  logs           Print the logs for a container in a pod
+  attach         Attach to a running container
+  exec           Execute a command in a container
+  port-forward   Forward one or more local ports to a pod
+  proxy          Run a proxy to the Kubernetes API server
+  cp             Copy files and directories to and from containers.
+  auth           Inspect authorization
+
+Advanced Commands:
+  diff           Diff live version against would-be applied version
+  apply          Apply a configuration to a resource by filename or stdin
+  patch          Update field(s) of a resource using strategic merge patch
+  replace        Replace a resource by filename or stdin
+  wait           Experimental: Wait for a specific condition on one or many reso
+  convert        Convert config files between different API versions
+
+Settings Commands:
+  label          Update the labels on a resource
+  annotate       Update the annotations on a resource
+  completion     Output shell completion code for the specified shell (bash or z
+
+Other Commands:
+  api-resources  Print the supported API resources on the server
+  api-versions   Print the supported API versions on the server, in the form of
+  config         Modify kubeconfig files
+  plugin         Provides utilities for interacting with plugins.
+  version        Print the client and server version information
+
+Usage:
+  kubectl [flags] [options]
+
+Use "kubectl <command> --help" for more information about a given command.
+Use "kubectl options" for a list of global command-line options (applies to all
+root@ip-172-31-83-219:~# kubectl get nodes
+NAME               STATUS   ROLES    AGE   VERSION
+ip-172-31-83-219   Ready    master   17m   v1.13.0
+root@ip-172-31-83-219:~#
+

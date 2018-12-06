@@ -1,0 +1,975 @@
+Using username "ubuntu".
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1021-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Dec  6 10:13:31 UTC 2018
+
+  System load:  0.0               Processes:           100
+  Usage of /:   15.8% of 7.69GB   Users logged in:     1
+  Memory usage: 4%                IP address for eth0: 172.31.43.180
+  Swap usage:   0%
+
+
+ * MicroK8s is Kubernetes in a snap. Made by devs for devs.
+   One quick install on a workstation, VM, or appliance.
+
+   - http://bit.ly/microk8s
+
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+116 packages can be updated.
+46 updates are security updates.
+
+
+Last login: Thu Dec  6 10:01:32 2018 from 183.82.223.7
+ubuntu@ip-172-31-43-180:~$ sudo -i
+root@ip-172-31-43-180:~# vi /etc/hostname
+root@ip-172-31-43-180:~# hostname knode
+root@ip-172-31-43-180:~# exec bash
+root@knode:~# vi /etc/hosts
+root@knode:~# apt-get install -y docker.io
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  bridge-utils cgroupfs-mount libltdl7 pigz ubuntu-fan
+Suggested packages:
+  ifupdown aufs-tools debootstrap docker-doc rinse zfs-fuse | zfsutils
+The following NEW packages will be installed:
+  bridge-utils cgroupfs-mount docker.io libltdl7 pigz ubuntu-fan
+0 upgraded, 6 newly installed, 0 to remove and 114 not upgraded.
+Need to get 40.3 MB of archives.
+After this operation, 198 MB of additional disk space will be used.
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 pigz amd64 2.4-1 [57.4 kB]
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 bridge-utils amd64 1.5-15ubuntu1 [30.1 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 cgroupfs-mount all 1.4 [6320 B]
+Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 libltdl7 amd64 2.4.6-2 [38.8 kB]
+Get:5 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 docker.io amd64 18.06.1-0ubuntu1~18.04.1 [40.2 MB]
+Get:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 ubuntu-fan all 0.12.10 [34.7 kB]
+Fetched 40.3 MB in 1s (55.2 MB/s)
+Preconfiguring packages ...
+Selecting previously unselected package pigz.
+(Reading database ... 56477 files and directories currently installed.)
+Preparing to unpack .../0-pigz_2.4-1_amd64.deb ...
+Unpacking pigz (2.4-1) ...
+Selecting previously unselected package bridge-utils.
+Preparing to unpack .../1-bridge-utils_1.5-15ubuntu1_amd64.deb ...
+Unpacking bridge-utils (1.5-15ubuntu1) ...
+Selecting previously unselected package cgroupfs-mount.
+Preparing to unpack .../2-cgroupfs-mount_1.4_all.deb ...
+Unpacking cgroupfs-mount (1.4) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../3-libltdl7_2.4.6-2_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.6-2) ...
+Selecting previously unselected package docker.io.
+Preparing to unpack .../4-docker.io_18.06.1-0ubuntu1~18.04.1_amd64.deb ...
+Unpacking docker.io (18.06.1-0ubuntu1~18.04.1) ...
+Selecting previously unselected package ubuntu-fan.
+Preparing to unpack .../5-ubuntu-fan_0.12.10_all.deb ...
+Unpacking ubuntu-fan (0.12.10) ...
+Processing triggers for ureadahead (0.100.0-20) ...
+Setting up cgroupfs-mount (1.4) ...
+Setting up bridge-utils (1.5-15ubuntu1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Setting up ubuntu-fan (0.12.10) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/ubuntu-fan.service ? /lib/systemd/system/ubuntu-fan.service.
+Processing triggers for systemd (237-3ubuntu10.3) ...
+Setting up libltdl7:amd64 (2.4.6-2) ...
+Processing triggers for man-db (2.8.3-2) ...
+Setting up pigz (2.4-1) ...
+Setting up docker.io (18.06.1-0ubuntu1~18.04.1) ...
+Adding group `docker' (GID 115) ...
+Done.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket ? /lib/systemd/system/docker.socket.
+Processing triggers for ureadahead (0.100.0-20) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Processing triggers for systemd (237-3ubuntu10.3) ...
+root@knode:~# echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+root@knode:~# apt-get update
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Get:4 http://security.ubuntu.com/ubuntu bionic-security InRelease [83.2 kB]
+Get:5 https://packages.cloud.google.com/apt kubernetes-xenial InRelease [8993 B]
+Get:6 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 Packages [21.8 kB]
+Fetched 114 kB in 1s (188 kB/s)
+Reading package lists... Done
+root@knode:~# apt-get install -y kubelet kubeadm kubectl
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  cri-tools kubernetes-cni socat
+The following NEW packages will be installed:
+  cri-tools kubeadm kubectl kubelet kubernetes-cni socat
+0 upgraded, 6 newly installed, 0 to remove and 114 not upgraded.
+Need to get 45.9 MB of archives.
+After this operation, 264 MB of additional disk space will be used.
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 socat amd64 1.7.3.2-2ubuntu2 [342 kB]
+Get:2 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 cri-tools amd64 1.12.0-00 [5343 kB]
+Get:3 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubernetes-cni amd64 0.6.0-00 [5910 kB]
+Get:4 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubelet amd64 1.13.0-00 [19.1 MB]
+Get:5 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubectl amd64 1.13.0-00 [7841 kB]
+Get:6 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubeadm amd64 1.13.0-00 [7355 kB]
+Fetched 45.9 MB in 2s (21.2 MB/s)
+Selecting previously unselected package cri-tools.
+(Reading database ... 56758 files and directories currently installed.)
+Preparing to unpack .../0-cri-tools_1.12.0-00_amd64.deb ...
+Unpacking cri-tools (1.12.0-00) ...
+Selecting previously unselected package kubernetes-cni.
+Preparing to unpack .../1-kubernetes-cni_0.6.0-00_amd64.deb ...
+Unpacking kubernetes-cni (0.6.0-00) ...
+Selecting previously unselected package socat.
+Preparing to unpack .../2-socat_1.7.3.2-2ubuntu2_amd64.deb ...
+Unpacking socat (1.7.3.2-2ubuntu2) ...
+Selecting previously unselected package kubelet.
+Preparing to unpack .../3-kubelet_1.13.0-00_amd64.deb ...
+Unpacking kubelet (1.13.0-00) ...
+Selecting previously unselected package kubectl.
+Preparing to unpack .../4-kubectl_1.13.0-00_amd64.deb ...
+Unpacking kubectl (1.13.0-00) ...
+Selecting previously unselected package kubeadm.
+Preparing to unpack .../5-kubeadm_1.13.0-00_amd64.deb ...
+Unpacking kubeadm (1.13.0-00) ...
+Setting up kubernetes-cni (0.6.0-00) ...
+Setting up cri-tools (1.12.0-00) ...
+Setting up socat (1.7.3.2-2ubuntu2) ...
+Setting up kubelet (1.13.0-00) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/kubelet.service ? /lib/systemd/system/kubelet.service.
+Setting up kubectl (1.13.0-00) ...
+Processing triggers for man-db (2.8.3-2) ...
+Setting up kubeadm (1.13.0-00) ...
+root@knode:~# kubectl get nodes
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+root@knode:~# kubeadm join
+[discovery.bootstrapToken: Required value: APIServerEndpoint is not set, discovery.bootstrapToken: Invalid value: "": using token-based discovery without caCertHashes can be unsafe. Set unsafeSkipCAVerification to continue, discovery.bootstrapToken.token: Invalid value: "": the bootstrap token is invalid, discovery.bootstrapToken.apiServerEndpoints: Invalid value: "": missing port in address, discovery.tlsBootstrapToken: Invalid value: "": the bootstrap token is invalid]
+root@knode:~# kubectl get nodes
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+root@knode:~#  kubectl apply -f https://git.io/weave-kube-1.6
+error: unable to recognize "https://git.io/weave-kube-1.6": Get http://localhost:8080/api?timeout=32s: dial tcp 127.0.0.1:8080: connect: connection refused
+root@knode:~# kubectl apply -f https://git.io/weave-kube-1.6
+error: unable to recognize "https://git.io/weave-kube-1.6": Get http://localhost:8080/api?timeout=32s: dial tcp 127.0.0.1:8080: connect: connection refused
+root@knode:~# kubeadm join 172.31.83.219:6443 --token vr9nmz.yucbbaxfcg0kl4ir --discovery-token-ca-cert-hash
+Error: flag needs an argument: --discovery-token-ca-cert-hash
+Usage:
+  kubeadm join [flags]
+
+Flags:
+      --apiserver-advertise-address string            If the node should host a new control plane instance, the IP address the API Server will advertise it's listening on.
+      --apiserver-bind-port int32                     If the node should host a new control plane instance, the port for the API Server to bind to. (default 6443)
+      --config string                                 Path to kubeadm config file.
+      --cri-socket string                             Specify the CRI socket to connect to. (default "/var/run/dockershim.sock")
+      --discovery-file string                         A file or URL from which to load cluster information.
+      --discovery-token string                        A token used to validate cluster information fetched from the API server.
+      --discovery-token-ca-cert-hash strings          For token-based discovery, validate that the root CA public key matches this hash (format: "<type>:<value>").
+      --discovery-token-unsafe-skip-ca-verification   For token-based discovery, allow joining without --discovery-token-ca-cert-hash pinning.
+      --experimental-control-plane                    Create a new control plane instance on this node
+  -h, --help                                          help for join
+      --ignore-preflight-errors strings               A list of checks whose errors will be shown as warnings. Example: 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.
+      --node-name string                              Specify the node name.
+      --token string                                  Use this token for both discovery-token and tls-bootstrap-token when those values are not provided.
+
+Global Flags:
+      --log-file string   If non-empty, use this log file
+      --rootfs string     [EXPERIMENTAL] The path to the 'real' host root filesystem.
+      --skip-headers      If true, avoid header prefixes in the log messages
+  -v, --v Level           log level for V logs
+
+error: flag needs an argument: --discovery-token-ca-cert-hash
+root@knode:~#
+root@knode:~# sha256:5eabb5c8930e7180e7a17d4a15618827fca089d49c26b15be81f4665e77cd93c
+sha256:5eabb5c8930e7180e7a17d4a15618827fca089d49c26b15be81f4665e77cd93c: command not found
+root@knode:~# kubeadm join 172.31.83.219:6443 --token vr9nmz.yucbbaxfcg0kl4ir --discovery-token-ca-cert-hash
+Error: flag needs an argument: --discovery-token-ca-cert-hash
+Usage:
+  kubeadm join [flags]
+
+Flags:
+      --apiserver-advertise-address string            If the node should host a new control plane instance, the IP address the API Server will advertise it's listening on.
+      --apiserver-bind-port int32                     If the node should host a new control plane instance, the port for the API Server to bind to. (default 6443)
+      --config string                                 Path to kubeadm config file.
+      --cri-socket string                             Specify the CRI socket to connect to. (default "/var/run/dockershim.sock")
+      --discovery-file string                         A file or URL from which to load cluster information.
+      --discovery-token string                        A token used to validate cluster information fetched from the API server.
+      --discovery-token-ca-cert-hash strings          For token-based discovery, validate that the root CA public key matches this hash (format: "<type>:<value>").
+      --discovery-token-unsafe-skip-ca-verification   For token-based discovery, allow joining without --discovery-token-ca-cert-hash pinning.
+      --experimental-control-plane                    Create a new control plane instance on this node
+  -h, --help                                          help for join
+      --ignore-preflight-errors strings               A list of checks whose errors will be shown as warnings. Example: 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.
+      --node-name string                              Specify the node name.
+      --token string                                  Use this token for both discovery-token and tls-bootstrap-token when those values are not provided.
+
+Global Flags:
+      --log-file string   If non-empty, use this log file
+      --rootfs string     [EXPERIMENTAL] The path to the 'real' host root filesystem.
+      --skip-headers      If true, avoid header prefixes in the log messages
+  -v, --v Level           log level for V logs
+
+error: flag needs an argument: --discovery-token-ca-cert-hash
+root@knode:~# kubeadm join 172.31.83.219:6443 --token vr9nmz.yucbbaxfcg0kl4ir --discovery-token-ca-cert-hash sha256:5eabb5c8930e7180e7a17d4a15618827fca089d49c26b15be81f4665e77cd93c
+[preflight] Running pre-flight checks
+        [WARNING Service-Docker]: docker service is not enabled, please run 'systemctl enable docker.service'
+[discovery] Trying to connect to API Server "172.31.83.219:6443"
+[discovery] Created cluster-info discovery client, requesting info from "https://172.31.83.219:6443"
+[discovery] Requesting info from "https://172.31.83.219:6443" again to validate TLS against the pinned public key
+[discovery] Cluster info signature and contents are valid and TLS certificate validates against pinned roots, will use API Server "172.31.83.219:6443"
+[discovery] Successfully established connection with API Server "172.31.83.219:6443"
+[join] Reading configuration from the cluster...
+[join] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
+[kubelet] Downloading configuration for the kubelet from the "kubelet-config-1.13" ConfigMap in the kube-system namespace
+[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+[kubelet-start] Activating the kubelet service
+[tlsbootstrap] Waiting for the kubelet to perform the TLS Bootstrap...
+[patchnode] Uploading the CRI Socket information "/var/run/dockershim.sock" to the Node API object "knode" as an annotation
+
+This node has joined the cluster:
+* Certificate signing request was sent to apiserver and a response was received.
+* The Kubelet was informed of the new secure connection details.
+
+Run 'kubectl get nodes' on the master to see this node join the cluster.
+
+root@knode:~#
+
+
+****************************************************************************************
+******************************************************************************************
+******************************************************************************************
+*********************************************************************************************
+Using username "ubuntu".
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1021-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Dec  6 10:28:20 UTC 2018
+
+  System load:  0.21              Users logged in:        1
+  Usage of /:   34.5% of 7.69GB   IP address for eth0:    172.31.83.219
+  Memory usage: 10%               IP address for docker0: 172.17.0.1
+  Swap usage:   0%                IP address for weave:   10.32.0.1
+  Processes:    149
+
+
+ * MicroK8s is Kubernetes in a snap. Made by devs for devs.
+   One quick install on a workstation, VM, or appliance.
+
+   - http://bit.ly/microk8s
+
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+115 packages can be updated.
+46 updates are security updates.
+
+
+Last login: Thu Dec  6 10:08:20 2018 from 183.82.223.7
+ubuntu@kmaster:~$ sudo -i
+root@kmaster:~# kubectl get nodes
+NAME               STATUS   ROLES    AGE   VERSION
+ip-172-31-83-219   Ready    master   53m   v1.13.0
+knode              Ready    <none>   53s   v1.13.0
+root@kmaster:~# kubectl get pods
+No resources found.
+root@kmaster:~# kubectl run irctc --image=redis --replicas=8
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+deployment.apps/irctc created
+root@kmaster:~# kubectl get ods -o wide
+error: the server doesn't have a resource type "ods"
+root@kmaster:~# kubectl get pods -o wide
+NAME                     READY   STATUS              RESTARTS   AGE   IP       NODE    NOMINATED NODE   READINESS GATES
+irctc-7d9b659988-2f2l5   0/1     ContainerCreating   0          65s   <none>   knode   <none>           <none>
+irctc-7d9b659988-5s9h4   0/1     ContainerCreating   0          65s   <none>   knode   <none>           <none>
+irctc-7d9b659988-9xzg2   0/1     ContainerCreating   0          65s   <none>   knode   <none>           <none>
+irctc-7d9b659988-gdcxn   0/1     ContainerCreating   0          65s   <none>   knode   <none>           <none>
+irctc-7d9b659988-kbvqt   0/1     ContainerCreating   0          65s   <none>   knode   <none>           <none>
+irctc-7d9b659988-mnrw2   0/1     ContainerCreating   0          65s   <none>   knode   <none>           <none>
+irctc-7d9b659988-szvht   0/1     ContainerCreating   0          65s   <none>   knode   <none>           <none>
+irctc-7d9b659988-vkzbz   0/1     ContainerCreating   0          65s   <none>   knode   <none>           <none>
+root@kmaster:~# ls
+snap
+root@kmaster:~# kubectl create -f pods-defination.yml
+error: the path "pods-defination.yml" does not exist
+root@kmaster:~# kubectl create -f pod-defination.yml
+error: the path "pod-defination.yml" does not exist
+root@kmaster:~# kubectl create -f pod -defination.yml
+Error: unknown shorthand flag: 'd' in -defination.yml
+
+
+Examples:
+  # Create a pod using the data in pod.json.
+  kubectl create -f ./pod.json
+
+  # Create a pod based on the JSON passed into stdin.
+  cat pod.json | kubectl create -f -
+
+  # Edit the data in docker-registry.yaml in JSON then create the resource using the edited data.
+  kubectl create -f docker-registry.yaml --edit -o json
+
+Available Commands:
+  clusterrole         Create a ClusterRole.
+  clusterrolebinding  Create a ClusterRoleBinding for a particular ClusterRole
+  configmap           Create a configmap from a local file, directory or literal value
+  deployment          Create a deployment with the specified name.
+  job                 Create a job with the specified name.
+  namespace           Create a namespace with the specified name
+  poddisruptionbudget Create a pod disruption budget with the specified name.
+  priorityclass       Create a priorityclass with the specified name.
+  quota               Create a quota with the specified name.
+  role                Create a role with single rule.
+  rolebinding         Create a RoleBinding for a particular Role or ClusterRole
+  secret              Create a secret using specified subcommand
+  service             Create a service using specified subcommand.
+  serviceaccount      Create a service account with the specified name
+
+Options:
+      --allow-missing-template-keys=true: If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats.
+      --dry-run=false: If true, only print the object that would be sent, without sending it.
+      --edit=false: Edit the API resource before creating
+  -f, --filename=[]: Filename, directory, or URL to files to use to create the resource
+  -o, --output='': Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+      --raw='': Raw URI to POST to the server.  Uses the transport specified by the kubeconfig file.
+      --record=false: Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
+  -R, --recursive=false: Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --save-config=false: If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
+  -l, --selector='': Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --template='': Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --validate=true: If true, use a schema to validate the input before sending it
+      --windows-line-endings=false: Only relevant if --edit=true. Defaults to the line ending native to your platform.
+
+Usage:
+  kubectl create -f FILENAME [options]
+
+Use "kubectl <command> --help" for more information about a given command.
+Use "kubectl options" for a list of global command-line options (applies to all commands).
+
+unknown shorthand flag: 'd' in -defination.yml
+root@kmaster:~# kubectl create -f samplepod.yml
+error: the path "samplepod.yml" does not exist
+root@kmaster:~# kubectl create -f samplepod.yaml
+error: the path "samplepod.yaml" does not exist
+root@kmaster:~# vi samplepod.yml
+root@kmaster:~# vi samplepod.yml
+root@kmaster:~# kubectl create -f samplepod.yml
+error: error parsing samplepod.yml: error converting YAML to JSON: yaml: line 11: mapping values are not allowed in this context
+root@kmaster:~# vi samplepod.yml
+root@kmaster:~# kubectl create -f samplepod.yml
+error: error validating "samplepod.yml": error validating data: apiVersion not set; if you choose to ignore these errors, turn validation off with --validate=false
+root@kmaster:~# vi samplepod.yml
+root@kmaster:~# kubectl create -f samplepod.yml
+error: error validating "samplepod.yml": error validating data: apiVersion not set; if you choose to ignore these errors, turn validation off with --validate=false
+root@kmaster:~# vi samplepod.yml
+root@kmaster:~# kubectl create -f samplepod.yml
+Error from server (BadRequest): error when creating "samplepod.yml": pod in version "v1" cannot be handled as a Pod: no kind "pod" is registered for version "v1" in scheme "k8s.io/kubernetes/pkg/api/legacyscheme/scheme.go:29"
+root@kmaster:~# vi samplepod.yml
+root@kmaster:~# kubectl create -f samplepod.yml
+error: unable to recognize "samplepod.yml": no matches for kind "pod" in version "v6"
+root@kmaster:~# vi samplepod.yml
+root@kmaster:~# kubectl create -f samplepod.yml
+error: unable to recognize "samplepod.yml": no matches for kind "pod" in version "v2"
+root@kmaster:~# vi samplepod.yml
+root@kmaster:~# kubectl create -f samplepod.yml
+error: unable to recognize "samplepod.yml": no matches for kind "pod" in version "v3"
+root@kmaster:~# vi samplepod.yml
+root@kmaster:~# kubectl create -f samplepod.yml
+error: error validating "samplepod.yml": error validating data: apiVersion not set; if you choose to ignore these errors, turn validation off with --validate=false
+root@kmaster:~# ^C
+root@kmaster:~# validation off with --validate=false
+validation: command not found
+root@kmaster:~# kubectl create -f samplepod.yml
+error: error validating "samplepod.yml": error validating data: apiVersion not set; if you choose to ignore these errors, turn validation off with --validate=false
+root@kmaster:~# vi samplepod.yml
+root@kmaster:~# vi demo.yml
+root@kmaster:~# kubectl create -f demo.yml
+pod/example created
+root@kmaster:~# kubectl get pod
+NAME                     READY   STATUS              RESTARTS   AGE
+example                  0/1     ContainerCreating   0          58s
+irctc-7d9b659988-2f2l5   0/1     ContainerCreating   0          24m
+irctc-7d9b659988-5s9h4   0/1     ContainerCreating   0          24m
+irctc-7d9b659988-9xzg2   0/1     ContainerCreating   0          24m
+irctc-7d9b659988-gdcxn   0/1     ContainerCreating   0          24m
+irctc-7d9b659988-kbvqt   0/1     ContainerCreating   0          24m
+irctc-7d9b659988-mnrw2   0/1     ContainerCreating   0          24m
+irctc-7d9b659988-szvht   0/1     ContainerCreating   0          24m
+irctc-7d9b659988-vkzbz   0/1     ContainerCreating   0          24m
+root@kmaster:~# kubectl get pods
+NAME                     READY   STATUS              RESTARTS   AGE
+example                  0/1     ContainerCreating   0          71s
+irctc-7d9b659988-2f2l5   0/1     ContainerCreating   0          25m
+irctc-7d9b659988-5s9h4   0/1     ContainerCreating   0          25m
+irctc-7d9b659988-9xzg2   0/1     ContainerCreating   0          25m
+irctc-7d9b659988-gdcxn   0/1     ContainerCreating   0          25m
+irctc-7d9b659988-kbvqt   0/1     ContainerCreating   0          25m
+irctc-7d9b659988-mnrw2   0/1     ContainerCreating   0          25m
+irctc-7d9b659988-szvht   0/1     ContainerCreating   0          25m
+irctc-7d9b659988-vkzbz   0/1     ContainerCreating   0          25m
+root@kmaster:~# kubectl describe example
+error: the server doesn't have a resource type "example"
+root@kmaster:~# kubectl describe irctc
+error: the server doesn't have a resource type "irctc"
+root@kmaster:~# kubectl describe example
+error: the server doesn't have a resource type "example"
+root@kmaster:~# kubectl describe pods
+Name:               example
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               knode/172.31.43.180
+Start Time:         Thu, 06 Dec 2018 10:56:46 +0000
+Labels:             <none>
+Annotations:        <none>
+Status:             Pending
+IP:
+Containers:
+  nginx:
+    Container ID:
+    Image:          nginx:latest
+    Image ID:
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-nbrp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-nbrp4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-nbrp4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  2m51s  default-scheduler  Successfully assigned default/example to knode
+
+
+Name:               irctc-7d9b659988-2f2l5
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               knode/172.31.43.180
+Start Time:         Thu, 06 Dec 2018 10:32:49 +0000
+Labels:             pod-template-hash=7d9b659988
+                    run=irctc
+Annotations:        <none>
+Status:             Pending
+IP:
+Controlled By:      ReplicaSet/irctc-7d9b659988
+Containers:
+  irctc:
+    Container ID:
+    Image:          redis
+    Image ID:
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-nbrp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-nbrp4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-nbrp4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason                  Age                  From               Message
+  ----     ------                  ----                 ----               -------
+  Normal   Scheduled               26m                  default-scheduler  Successfully assigned default/irctc-7d9b659988-2f2l5 to knode
+  Warning  FailedCreatePodSandBox  2m44s (x6 over 22m)  kubelet, knode     Failed create pod sandbox: rpc error: code = DeadlineExceeded desc = context deadline exceeded
+  Normal   SandboxChanged          2m43s (x6 over 22m)  kubelet, knode     Pod sandbox changed, it will be killed and re-created.
+
+
+Name:               irctc-7d9b659988-5s9h4
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               knode/172.31.43.180
+Start Time:         Thu, 06 Dec 2018 10:32:49 +0000
+Labels:             pod-template-hash=7d9b659988
+                    run=irctc
+Annotations:        <none>
+Status:             Pending
+IP:
+Controlled By:      ReplicaSet/irctc-7d9b659988
+Containers:
+  irctc:
+    Container ID:
+    Image:          redis
+    Image ID:
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-nbrp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-nbrp4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-nbrp4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason                  Age                  From               Message
+  ----     ------                  ----                 ----               -------
+  Normal   Scheduled               26m                  default-scheduler  Successfully assigned default/irctc-7d9b659988-5s9h4 to knode
+  Warning  FailedCreatePodSandBox  2m45s (x6 over 22m)  kubelet, knode     Failed create pod sandbox: rpc error: code = DeadlineExceeded desc = context deadline exceeded
+  Normal   SandboxChanged          2m43s (x6 over 22m)  kubelet, knode     Pod sandbox changed, it will be killed and re-created.
+
+
+Name:               irctc-7d9b659988-9xzg2
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               knode/172.31.43.180
+Start Time:         Thu, 06 Dec 2018 10:32:49 +0000
+Labels:             pod-template-hash=7d9b659988
+                    run=irctc
+Annotations:        <none>
+Status:             Pending
+IP:
+Controlled By:      ReplicaSet/irctc-7d9b659988
+Containers:
+  irctc:
+    Container ID:
+    Image:          redis
+    Image ID:
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-nbrp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-nbrp4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-nbrp4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason                  Age                  From               Message
+  ----     ------                  ----                 ----               -------
+  Normal   Scheduled               26m                  default-scheduler  Successfully assigned default/irctc-7d9b659988-9xzg2 to knode
+  Warning  FailedCreatePodSandBox  2m45s (x6 over 22m)  kubelet, knode     Failed create pod sandbox: rpc error: code = DeadlineExceeded desc = context deadline exceeded
+  Normal   SandboxChanged          2m45s (x6 over 22m)  kubelet, knode     Pod sandbox changed, it will be killed and re-created.
+
+
+Name:               irctc-7d9b659988-gdcxn
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               knode/172.31.43.180
+Start Time:         Thu, 06 Dec 2018 10:32:49 +0000
+Labels:             pod-template-hash=7d9b659988
+                    run=irctc
+Annotations:        <none>
+Status:             Pending
+IP:
+Controlled By:      ReplicaSet/irctc-7d9b659988
+Containers:
+  irctc:
+    Container ID:
+    Image:          redis
+    Image ID:
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-nbrp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-nbrp4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-nbrp4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason                  Age                  From               Message
+  ----     ------                  ----                 ----               -------
+  Normal   Scheduled               26m                  default-scheduler  Successfully assigned default/irctc-7d9b659988-gdcxn to knode
+  Warning  FailedCreatePodSandBox  2m44s (x6 over 22m)  kubelet, knode     Failed create pod sandbox: rpc error: code = DeadlineExceeded desc = context deadline exceeded
+  Normal   SandboxChanged          2m43s (x6 over 22m)  kubelet, knode     Pod sandbox changed, it will be killed and re-created.
+
+
+Name:               irctc-7d9b659988-kbvqt
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               knode/172.31.43.180
+Start Time:         Thu, 06 Dec 2018 10:32:49 +0000
+Labels:             pod-template-hash=7d9b659988
+                    run=irctc
+Annotations:        <none>
+Status:             Pending
+IP:
+Controlled By:      ReplicaSet/irctc-7d9b659988
+Containers:
+  irctc:
+    Container ID:
+    Image:          redis
+    Image ID:
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-nbrp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-nbrp4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-nbrp4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason                  Age                  From               Message
+  ----     ------                  ----                 ----               -------
+  Normal   Scheduled               26m                  default-scheduler  Successfully assigned default/irctc-7d9b659988-kbvqt to knode
+  Warning  FailedCreatePodSandBox  2m45s (x6 over 22m)  kubelet, knode     Failed create pod sandbox: rpc error: code = DeadlineExceeded desc = context deadline exceeded
+  Normal   SandboxChanged          2m45s (x6 over 22m)  kubelet, knode     Pod sandbox changed, it will be killed and re-created.
+
+
+Name:               irctc-7d9b659988-mnrw2
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               knode/172.31.43.180
+Start Time:         Thu, 06 Dec 2018 10:32:49 +0000
+Labels:             pod-template-hash=7d9b659988
+                    run=irctc
+Annotations:        <none>
+Status:             Pending
+IP:
+Controlled By:      ReplicaSet/irctc-7d9b659988
+Containers:
+  irctc:
+    Container ID:
+    Image:          redis
+    Image ID:
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-nbrp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-nbrp4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-nbrp4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason                  Age                  From               Message
+  ----     ------                  ----                 ----               -------
+  Normal   Scheduled               26m                  default-scheduler  Successfully assigned default/irctc-7d9b659988-mnrw2 to knode
+  Warning  FailedCreatePodSandBox  2m45s (x6 over 22m)  kubelet, knode     Failed create pod sandbox: rpc error: code = DeadlineExceeded desc = context deadline exceeded
+  Normal   SandboxChanged          2m45s (x6 over 22m)  kubelet, knode     Pod sandbox changed, it will be killed and re-created.
+
+
+Name:               irctc-7d9b659988-szvht
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               knode/172.31.43.180
+Start Time:         Thu, 06 Dec 2018 10:32:49 +0000
+Labels:             pod-template-hash=7d9b659988
+                    run=irctc
+Annotations:        <none>
+Status:             Pending
+IP:
+Controlled By:      ReplicaSet/irctc-7d9b659988
+Containers:
+  irctc:
+    Container ID:
+    Image:          redis
+    Image ID:
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-nbrp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-nbrp4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-nbrp4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason                  Age                  From               Message
+  ----     ------                  ----                 ----               -------
+  Normal   Scheduled               26m                  default-scheduler  Successfully assigned default/irctc-7d9b659988-szvht to knode
+  Warning  FailedCreatePodSandBox  2m45s (x6 over 22m)  kubelet, knode     Failed create pod sandbox: rpc error: code = DeadlineExceeded desc = context deadline exceeded
+  Normal   SandboxChanged          2m43s (x6 over 22m)  kubelet, knode     Pod sandbox changed, it will be killed and re-created.
+
+
+Name:               irctc-7d9b659988-vkzbz
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               knode/172.31.43.180
+Start Time:         Thu, 06 Dec 2018 10:32:49 +0000
+Labels:             pod-template-hash=7d9b659988
+                    run=irctc
+Annotations:        <none>
+Status:             Pending
+IP:
+Controlled By:      ReplicaSet/irctc-7d9b659988
+Containers:
+  irctc:
+    Container ID:
+    Image:          redis
+    Image ID:
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-nbrp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-nbrp4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-nbrp4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason                  Age                  From               Message
+  ----     ------                  ----                 ----               -------
+  Normal   Scheduled               26m                  default-scheduler  Successfully assigned default/irctc-7d9b659988-vkzbz to knode
+  Warning  FailedCreatePodSandBox  2m45s (x6 over 22m)  kubelet, knode     Failed create pod sandbox: rpc error: code = DeadlineExceeded desc = context deadline exceeded
+  Normal   SandboxChanged          2m45s (x6 over 22m)  kubelet, knode     Pod sandbox changed, it will be killed and re-created.
+root@kmaster:~# kubectl describe pod example
+Name:               example
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               knode/172.31.43.180
+Start Time:         Thu, 06 Dec 2018 10:56:46 +0000
+Labels:             <none>
+Annotations:        <none>
+Status:             Pending
+IP:
+Containers:
+  nginx:
+    Container ID:
+    Image:          nginx:latest
+    Image ID:
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-nbrp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-nbrp4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-nbrp4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason                  Age   From               Message
+  ----     ------                  ----  ----               -------
+  Normal   Scheduled               4m7s  default-scheduler  Successfully assigned default/example to knode
+  Warning  FailedCreatePodSandBox  6s    kubelet, knode     Failed create pod sandbox: rpc error: code = DeadlineExceeded desc = context deadline exceeded
+  Normal   SandboxChanged          6s    kubelet, knode     Pod sandbox changed, it will be killed and re-created.
+root@kmaster:~# docker ps
+CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS               NAMES
+133ec360d8e1        f59dcacceff4            "/coredns -conf /etc…"   About an hour ago   Up About an hour                        k8s_coredns_coredns-86c58d9df4-jwtq7_kube-system_43ce72b8-f93a-11e8-8327-1206216c646a_0
+60040b17dafa        f59dcacceff4            "/coredns -conf /etc…"   About an hour ago   Up About an hour                        k8s_coredns_coredns-86c58d9df4-4kzj7_kube-system_43cd9995-f93a-11e8-8327-1206216c646a_0
+a22e21afc69f        k8s.gcr.io/pause:3.1    "/pause"                 About an hour ago   Up About an hour                        k8s_POD_coredns-86c58d9df4-jwtq7_kube-system_43ce72b8-f93a-11e8-8327-1206216c646a_0
+c3ab9f6af849        k8s.gcr.io/pause:3.1    "/pause"                 About an hour ago   Up About an hour                        k8s_POD_coredns-86c58d9df4-4kzj7_kube-system_43cd9995-f93a-11e8-8327-1206216c646a_0
+5df0bfebd0cf        weaveworks/weave-npc    "/usr/bin/weave-npc"     About an hour ago   Up About an hour                        k8s_weave-npc_weave-net-dgh4h_kube-system_8041e568-f93c-11e8-8327-1206216c646a_0
+24c0a6aa1a69        weaveworks/weave-kube   "/home/weave/launch.…"   About an hour ago   Up About an hour                        k8s_weave_weave-net-dgh4h_kube-system_8041e568-f93c-11e8-8327-1206216c646a_0
+18b6cba1c86b        k8s.gcr.io/pause:3.1    "/pause"                 About an hour ago   Up About an hour                        k8s_POD_weave-net-dgh4h_kube-system_8041e568-f93c-11e8-8327-1206216c646a_0
+03fe3e815038        8fa56d18961f            "/usr/local/bin/kube…"   About an hour ago   Up About an hour                        k8s_kube-proxy_kube-proxy-pzlln_kube-system_43d54a06-f93a-11e8-8327-1206216c646a_0
+6b154eb54171        k8s.gcr.io/pause:3.1    "/pause"                 About an hour ago   Up About an hour                        k8s_POD_kube-proxy-pzlln_kube-system_43d54a06-f93a-11e8-8327-1206216c646a_0
+919dc2f4d3b3        3cab8e1b9802            "etcd --advertise-cl…"   About an hour ago   Up About an hour                        k8s_etcd_etcd-ip-172-31-83-219_kube-system_fc035314c8668b0c79af1a83fe6f4757_0
+bc9e6028d96a        9508b7d8008d            "kube-scheduler --ad…"   About an hour ago   Up About an hour                        k8s_kube-scheduler_kube-scheduler-ip-172-31-83-219_kube-system_69aa2b9af9c518ac6265f1e8dce289a0_0
+a823a701b579        d82530ead066            "kube-controller-man…"   About an hour ago   Up About an hour                        k8s_kube-controller-manager_kube-controller-manager-ip-172-31-83-219_kube-system_63930d07550baebffa188b23dd3fbb02_0
+25e2688ff7b3        f1ff9b7e3d6e            "kube-apiserver --au…"   About an hour ago   Up About an hour                        k8s_kube-apiserver_kube-apiserver-ip-172-31-83-219_kube-system_5500d6c6772aa9a9a7080b181946a021_0
+3cf9c9f5c8dd        k8s.gcr.io/pause:3.1    "/pause"                 About an hour ago   Up About an hour                        k8s_POD_etcd-ip-172-31-83-219_kube-system_fc035314c8668b0c79af1a83fe6f4757_0
+461efe01de81        k8s.gcr.io/pause:3.1    "/pause"                 About an hour ago   Up About an hour                        k8s_POD_kube-scheduler-ip-172-31-83-219_kube-system_69aa2b9af9c518ac6265f1e8dce289a0_0
+9212dd4d6667        k8s.gcr.io/pause:3.1    "/pause"                 About an hour ago   Up About an hour                        k8s_POD_kube-controller-manager-ip-172-31-83-219_kube-system_63930d07550baebffa188b23dd3fbb02_0
+1011bd998550        k8s.gcr.io/pause:3.1    "/pause"                 About an hour ago   Up About an hour                        k8s_POD_kube-apiserver-ip-172-31-83-219_kube-system_5500d6c6772aa9a9a7080b181946a021_0
+root@kmaster:~# docker images
+REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
+k8s.gcr.io/kube-proxy                v1.13.0             8fa56d18961f        2 days ago          80.2MB
+k8s.gcr.io/kube-apiserver            v1.13.0             f1ff9b7e3d6e        2 days ago          181MB
+k8s.gcr.io/kube-controller-manager   v1.13.0             d82530ead066        2 days ago          146MB
+k8s.gcr.io/kube-scheduler            v1.13.0             9508b7d8008d        2 days ago          79.6MB
+weaveworks/weave-npc                 2.5.0               d499500e93d3        4 weeks ago         49.5MB
+weaveworks/weave-kube                2.5.0               a5103f96993a        4 weeks ago         148MB
+k8s.gcr.io/coredns                   1.2.6               f59dcacceff4        4 weeks ago         40MB
+k8s.gcr.io/etcd                      3.2.24              3cab8e1b9802        2 months ago        220MB
+k8s.gcr.io/pause                     3.1                 da86e6ba6ca1        11 months ago       742kB
+root@kmaster:~# ls
+demo.yml  samplepod.yml  snap
+root@kmaster:~# vi demoservice.yml
+root@kmaster:~# vi demo.yml
+root@kmaster:~# vi demoservice.yml
+root@kmaster:~# vi demo.yml
+root@kmaster:~# vi demoservice.yml
+root@kmaster:~# kubectl create -f demo.yml
+replicationcontroller/nginx created
+root@kmaster:~# kubectl create -f demoservice.yml
+service/nginxservice created
+root@kmaster:~# kubectl get services
+NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+kubernetes     ClusterIP      10.96.0.1      <none>        443/TCP        96m
+nginxservice   LoadBalancer   10.96.115.51   <pending>     82:31923/TCP   18s
+root@kmaster:~# kubectl get pods
+NAME                     READY   STATUS              RESTARTS   AGE
+example                  0/1     ContainerCreating   0          15m
+irctc-7d9b659988-2f2l5   0/1     ContainerCreating   0          39m
+irctc-7d9b659988-5s9h4   0/1     ContainerCreating   0          39m
+irctc-7d9b659988-9xzg2   0/1     ContainerCreating   0          39m
+irctc-7d9b659988-gdcxn   0/1     ContainerCreating   0          39m
+irctc-7d9b659988-kbvqt   0/1     ContainerCreating   0          39m
+irctc-7d9b659988-mnrw2   0/1     ContainerCreating   0          39m
+irctc-7d9b659988-szvht   0/1     ContainerCreating   0          39m
+irctc-7d9b659988-vkzbz   0/1     ContainerCreating   0          39m
+nginx-tmhpv              0/1     ContainerCreating   0          115s
+nginx-wrv6c              0/1     ContainerCreating   0          115s
+root@kmaster:~# vi demoservice.yml
+root@kmaster:~# kubectl create -f demoservice.yml
+error: error validating "demoservice.yml": error validating data: [ValidationError(Service.spec.ports[0]): unknown field "nodeport" in io.k8s.api.core.v1.ServicePort, ValidationError(Service.spec.ports[0]): unknown field "targetport" in io.k8s.api.core.v1.ServicePort]; if you choose to ignore these errors, turn validation off with --validate=false
+root@kmaster:~# vi demoservice.yml
+root@kmaster:~# kubectl create -f demoservice.yml
+error: error validating "demoservice.yml": error validating data: [ValidationError(Service.spec.ports[0]): unknown field "nodeport" in io.k8s.api.core.v1.ServicePort, ValidationError(Service.spec.ports[0]): unknown field "targetport" in io.k8s.api.core.v1.ServicePort]; if you choose to ignore these errors, turn validation off with --validate=false
+root@kmaster:~# vi demoservice.yml
+root@kmaster:~# kubectl create -f demoservice.yml
+error: error validating "demoservice.yml": error validating data: [ValidationError(Service.spec.ports[0]): unknown field "nodeport" in io.k8s.api.core.v1.ServicePort, ValidationError(Service.spec.ports[0]): unknown field "targetport" in io.k8s.api.core.v1.ServicePort]; if you choose to ignore these errors, turn validation off with --validate=false
+root@kmaster:~# vi demoservice.yml
+root@kmaster:~# kubectl create -f demoservice.yml
+error: error validating "demoservice.yml": error validating data: [ValidationErr                       or(Service.spec.ports[0]): unknown field "nodeport" in io.k8s.api.core.v1.Servic                       ePort, ValidationError(Service.spec.ports[0]): unknown field "targetport" in io.                       k8s.api.core.v1.ServicePort]; if you choose to ignore these errors, turn validat                       ion off with --validate=false
+root@kmaster:~#
